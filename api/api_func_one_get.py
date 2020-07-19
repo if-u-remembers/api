@@ -109,30 +109,27 @@ def twoIPdata():
 def new_dict(dicts):
     lens = len(dicts['ietf-interfaces:interfaces']['interface'])
     i = 0
-    NewDicts = {}
+    # 构建一个空字典，作为最外层
+    NewList = []
     while i < lens:
         ChildrenDict = {}
+        ChildrenDict['name'] = dicts['ietf-interfaces:interfaces']['interface'][i]['name']
         ChildrenDict['enabled'] = dicts['ietf-interfaces:interfaces']['interface'][i]['enabled']
-        NewDicts[dicts['ietf-interfaces:interfaces']['interface'][i]['name']] = i
+        ChildrenDict['type'] = dicts['ietf-interfaces:interfaces']['interface'][i]['type']
         if dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']:
             ipv4_data = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address']
             ipv4 = []
             for item in ipv4_data:
                 ipv4.append(item)
-
             description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
             ChildrenDict['description'] = description
             ChildrenDict['ipv4'] = ipv4
-            # ip = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['ip']
-            # netmask = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['netmask']
-            # ChildrenDict['ip'] = ip
-            # ChildrenDict['netmask'] = netmask
         else:
             ChildrenDict['ip'] = 'null'
             ChildrenDict['netmask'] = 'null'
-        NewDicts[dicts['ietf-interfaces:interfaces']['interface'][i]['name']] = ChildrenDict
+        NewList.append(ChildrenDict)
         i += 1
-    return json.dumps(NewDicts)
+    return json.dumps(NewList)
 
 
 # print(new_dict(twoIPdata()))
