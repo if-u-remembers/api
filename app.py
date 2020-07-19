@@ -4,11 +4,14 @@ import os
 from vue_api import form_data
 from api import api_func_one
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app, supports_credentials=True, resources=r'/*')
 app.config.update(DEBUG=False)
 
 
-# 默认载入
+# 默认载入测试
 @app.route('/', methods= ['POST', 'GET', 'PUT'])
 def get_post():
     if request.method == 'POST':
@@ -40,13 +43,11 @@ def RestconfApiData():
     if request.method == 'GET':
         return api_func_one.get_api_one()
     elif request.method == 'POST' or 'PUT':
-        return '1'
+        return api_func_one.put_api_ones()
 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=50, debug=True)
 
 
-# https://www.cnblogs.com/shumei/p/12826557.html
-# https://www.jianshu.com/p/ead7317d01ec
 
