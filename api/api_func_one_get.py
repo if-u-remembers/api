@@ -47,7 +47,6 @@ def new_dict():
     lens = len(dicts['ietf-interfaces:interfaces']['interface'])
     i = 0
     NewDicts = {}
-
     while i < lens:
         ChildrenDict = {}
         ChildrenDict['enabled'] = dicts['ietf-interfaces:interfaces']['interface'][i]['enabled']
@@ -55,6 +54,8 @@ def new_dict():
         if dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']:
             ip = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['ip']
             netmask = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['netmask']
+            description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
+            ChildrenDict['description'] = description
             ChildrenDict['ip'] = ip
             ChildrenDict['netmask'] = netmask
         else:
@@ -67,4 +68,5 @@ def new_dict():
 
 # print(jsonTodata())
 # print(get_api_one())
+print(new_dict())
 
