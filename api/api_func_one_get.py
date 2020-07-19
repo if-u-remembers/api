@@ -36,14 +36,77 @@ def get_new_api_ones(api_url, headers, basicauth):
 
 
 def jsonTodata():
+    """
+    获取思科getapi的数据，并转换为基本字典数据。
+    :return:
+    """
     datas = json.loads(get_api_one())
     # print(type(datas))
     # print(len(datas['ietf-interfaces:interfaces']['interface']))
     return datas
 
 
-def new_dict():
-    dicts = jsonTodata()
+def twoIPdata():
+    """
+    模拟一个设备两个ip的数据
+    :return: 一个字典格式的数据
+    """
+    datas = {
+        "ietf-interfaces:interfaces": {
+            "interface": [
+                {
+                    "name": "GigabitEthernet1",
+                    "description": "MANAGEMENT INTERFACE - DON'T TOUCH ME",
+                    "type": "iana-if-type:ethernetCsmacd",
+                    "enabled": True,
+                    "ietf-ip:ipv4": {
+                        "address": [
+                            {
+                                "ip": "10.10.20.48",
+                                "netmask": "255.255.255.0"
+                            },
+                            {
+                                "ip": "10.10.20.49",
+                                "netmask": "255.255.255.0"
+                            },
+                            {
+                                "ip": "10.10.20.50",
+                                "netmask": "255.255.255.0"
+                            }
+                        ]
+                    },
+                    "ietf-ip:ipv6": {}
+                },
+                {
+                    "name": "GigabitEthernet2",
+                    "description": "MANAGEMENT INTERFACE - DON'T TOUCH ME",
+                    "type": "iana-if-type:ethernetCsmacd",
+                    "enabled": True,
+                    "ietf-ip:ipv4": {
+                        "address": [
+                            {
+                                "ip": "10.10.20.70",
+                                "netmask": "255.255.255.2"
+                            },
+                            {
+                                "ip": "10.10.20.80",
+                                "netmask": "255.255.255.0"
+                            },
+                            {
+                                "ip": "10.10.20.90",
+                                "netmask": "255.255.255.1"
+                            }
+                        ]
+                    },
+                    "ietf-ip:ipv6": {}
+                }
+            ]
+        }
+    }
+    return datas
+
+
+def new_dict(dicts):
     lens = len(dicts['ietf-interfaces:interfaces']['interface'])
     i = 0
     NewDicts = {}
@@ -52,12 +115,18 @@ def new_dict():
         ChildrenDict['enabled'] = dicts['ietf-interfaces:interfaces']['interface'][i]['enabled']
         NewDicts[dicts['ietf-interfaces:interfaces']['interface'][i]['name']] = i
         if dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']:
-            ip = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['ip']
-            netmask = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['netmask']
+            ipv4_data = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address']
+            ipv4 = []
+            for item in ipv4_data:
+                ipv4.append(item)
+
             description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
             ChildrenDict['description'] = description
-            ChildrenDict['ip'] = ip
-            ChildrenDict['netmask'] = netmask
+            ChildrenDict['ipv4'] = ipv4
+            # ip = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['ip']
+            # netmask = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address'][0]['netmask']
+            # ChildrenDict['ip'] = ip
+            # ChildrenDict['netmask'] = netmask
         else:
             ChildrenDict['ip'] = 'null'
             ChildrenDict['netmask'] = 'null'
@@ -66,7 +135,7 @@ def new_dict():
     return json.dumps(NewDicts)
 
 
+# print(new_dict(twoIPdata()))
+# print(new_dict(jsonTodata()))
 # print(jsonTodata())
 # print(get_api_one())
-print(new_dict())
-

@@ -39,10 +39,20 @@ def ve():
         return a.jsonData()
 
 
+# 原本ip
 @app.route('/RestconfApiDataFunctionOne', methods=['POST', 'GET', 'PUT'])
 def RestconfApiData():
     if request.method == 'GET':
-        return api_func_one_get.new_dict()
+        return api_func_one_get.new_dict(api_func_one_get.jsonTodata())
+    elif request.method == 'POST' or 'PUT':
+        return api_func_one.put_api_ones()
+
+
+# 多ip
+@app.route('/RestconfApiDataFunctionOne2', methods=['POST', 'GET', 'PUT'])
+def RestconfApiData2():
+    if request.method == 'GET':
+        return api_func_one_get.new_dict(api_func_one_get.twoIPdata())
     elif request.method == 'POST' or 'PUT':
         return api_func_one.put_api_ones()
 
