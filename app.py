@@ -3,6 +3,7 @@ from flask import request
 import os
 from vue_api import form_data
 from api import api_func_one
+from api import api_func_one_get
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
 
@@ -41,7 +42,7 @@ def ve():
 @app.route('/RestconfApiDataFunctionOne', methods=['POST', 'GET', 'PUT'])
 def RestconfApiData():
     if request.method == 'GET':
-        return api_func_one.get_api_one()
+        return api_func_one_get.new_dict()
     elif request.method == 'POST' or 'PUT':
         return api_func_one.put_api_ones()
 
