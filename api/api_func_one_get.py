@@ -16,9 +16,18 @@ def get_api_one():
                "Content-type":"application/yang-data+json"
     }
     basicauth = ("developer", "C1sco12345")
-    resp = requests.get(api_url, auth=basicauth, headers=headers, verify=False)
-    response_json = json.dumps(resp.json(), indent=4)
-    return response_json
+    try:
+        resp = requests.get(api_url, auth=basicauth, headers=headers, verify=False)
+        response_json = json.dumps(resp.json(), indent=4)
+        return response_json
+    except TimeoutError:
+        return "错误连接"
+
+
+
+
+
+# print(get_api_one())
 
 
 def get_new_api_ones(api_url, headers, basicauth):
@@ -121,14 +130,18 @@ def new_dict(dicts):
             ipv4 = []
             for item in ipv4_data:
                 ipv4.append(item)
-            description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
+            if 'description' in dicts['ietf-interfaces:interfaces']['interface'][i]:
+                description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
+            else:
+                description = 'null'
             ChildrenDict['description'] = description
             ChildrenDict['ipv4'] = ipv4
         else:
-            ChildrenDict['ip'] = 'null'
-            ChildrenDict['netmask'] = 'null'
+            ipv4 = 'null'
+            ChildrenDict['ipv4'] = ipv4
         NewList.append(ChildrenDict)
         i += 1
+
     return json.dumps(NewList)
 
 

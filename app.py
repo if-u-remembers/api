@@ -4,8 +4,10 @@ import os
 from vue_api import form_data
 from api import api_func_one
 from api import api_func_one_get
+from api import api_func_one_put
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
+import json
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources=r'/*')
@@ -43,18 +45,21 @@ def ve():
 @app.route('/RestconfApiDataFunctionOne', methods=['POST', 'GET', 'PUT'])
 def RestconfApiData():
     if request.method == 'GET':
+        # return api_func_one_get.jsonTodata()
         return api_func_one_get.new_dict(api_func_one_get.jsonTodata())
+        # return api_func_one_get.new_dict(api_func_one_get.twoIPdata())
     elif request.method == 'POST' or 'PUT':
-        return api_func_one.put_api_ones()
+        datas = request.data
+        return api_func_one_put.put_api_ones(datas)
 
 
-# 多ip
+# 多ip测试接口 * put/post 接口时发送数据
 @app.route('/RestconfApiDataFunctionOne2', methods=['POST', 'GET', 'PUT'])
 def RestconfApiData2():
     if request.method == 'GET':
         return api_func_one_get.new_dict(api_func_one_get.twoIPdata())
     elif request.method == 'POST' or 'PUT':
-        return api_func_one.put_api_ones()
+        return api_func_one_put.put_api_one()
 
 
 if __name__ == '__main__':

@@ -42,13 +42,11 @@ class GetApi:
         except KeyError:
             print("请输入正确的用户名或者密码,以及获取的api参数")
 
-
     def GetApiJson(self):
         """获取json格式的数据，是str格式"""
         data = self.__get()
         json_data = json.dumps(data, ensure_ascii=False)
         return json_data
-
 
     def GetApiDic(self):
         """获取字典格式的数据"""
