@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/api/mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/MysqlApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/MysqlApi.py" afterDir="false" />
-    </list>
+    <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="修改api" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,12 +163,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Flask server.flask_vue_api" />
-      <item itemvalue="Flask server.Flask (app.py)" />
-      <item itemvalue="Python.api_func_one_get" />
       <item itemvalue="Python.MysqlApi" />
+      <item itemvalue="Python.api_func_one_get" />
       <item itemvalue="Python.api_func_two_get" />
       <item itemvalue="Python.mysql" />
+      <item itemvalue="Flask server.Flask (app.py)" />
+      <item itemvalue="Flask server.flask_vue_api" />
     </list>
     <recent_temporary>
       <list>
