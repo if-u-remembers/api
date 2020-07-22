@@ -1,5 +1,3 @@
-
-
 import json
 import requests
 import urllib3
@@ -12,22 +10,17 @@ def get_api_one():
     """
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/"
+    # api_url = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
     headers = {"Accept": "application/yang-data+json",
-               "Content-type":"application/yang-data+json"
+               "Content-type": "application/yang-data+json"
     }
     basicauth = ("developer", "C1sco12345")
     try:
         resp = requests.get(api_url, auth=basicauth, headers=headers, verify=False)
         response_json = json.dumps(resp.json(), indent=4)
         return response_json
-    except TimeoutError:
-        return "错误连接"
-
-
-
-
-
-# print(get_api_one())
+    except:
+        return "414"
 
 
 def get_new_api_ones(api_url, headers, basicauth):
@@ -50,8 +43,8 @@ def jsonTodata():
     :return:
     """
     datas = json.loads(get_api_one())
-    # print(type(datas))
-    # print(len(datas['ietf-interfaces:interfaces']['interface']))
+    if datas == '414':
+        return '414'
     return datas
 
 
@@ -116,6 +109,8 @@ def twoIPdata():
 
 
 def new_dict(dicts):
+    if dicts == 414:
+        return '414'
     lens = len(dicts['ietf-interfaces:interfaces']['interface'])
     i = 0
     # 构建一个空字典，作为最外层
@@ -137,7 +132,7 @@ def new_dict(dicts):
             ChildrenDict['description'] = description
             ChildrenDict['ipv4'] = ipv4
         else:
-            ipv4 = 'null'
+            ipv4 = None
             ChildrenDict['ipv4'] = ipv4
         NewList.append(ChildrenDict)
         i += 1

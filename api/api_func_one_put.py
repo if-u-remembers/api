@@ -59,12 +59,18 @@ def put_api_ones(newjson):
                "Content-type": "application/yang-data+json"
                }
     basicauth = ("developer", "C1sco12345")
-    resp = requests.put(api_url, data=json.dumps(yangConfig), auth=basicauth, headers=headers, verify=False)
+    try:
 
-    if (resp.status_code >= 200 and resp.status_code <= 299):
-        return "成功 {}".format(resp.status_code)
-    else:
-        return "失败 {}".format(resp.status_code)
+        resp = requests.put(api_url, data=json.dumps(yangConfig), auth=basicauth, headers=headers, verify=False)
+
+        if (resp.status_code >= 200 and resp.status_code <= 299):
+            return '200'
+        else:
+            # 传递错误
+            return '400'
+    except:
+        # 超时
+        return '414'
 
 
 

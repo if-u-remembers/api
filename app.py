@@ -2,7 +2,6 @@ from flask import Flask
 from flask import request
 import os
 from vue_api import form_data
-from api import api_func_one
 from api import api_func_one_get
 from api import api_func_one_put
 from flask import Flask, render_template, jsonify, request, redirect, url_for
@@ -15,7 +14,7 @@ app.config.update(DEBUG=False)
 
 
 # 默认载入测试
-@app.route('/', methods= ['POST', 'GET', 'PUT'])
+@app.route('/', methods=['POST', 'GET', 'PUT'])
 def get_post():
     if request.method == 'POST':
         return '你进入了post'
@@ -45,6 +44,8 @@ def ve():
 @app.route('/RestconfApiDataFunctionOne', methods=['POST', 'GET', 'PUT'])
 def RestconfApiData():
     if request.method == 'GET':
+        # return api_func_one_get.page()
+        # return api_func_one_get.get_api_one()
         # return api_func_one_get.jsonTodata()
         return api_func_one_get.new_dict(api_func_one_get.jsonTodata())
         # return api_func_one_get.new_dict(api_func_one_get.twoIPdata())
@@ -62,8 +63,16 @@ def RestconfApiData2():
         return api_func_one_put.put_api_one()
 
 
+@app.route('/RestconfApiDataFunctionTwo', methods=['POST', 'GET', 'PUT'])
+def RestconfApiDataFunctionTwo():
+    if request.method == 'POST' or 'PUT':
+        return 'post'
+    else:
+        return 'error 500'
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=50, debug=True)
+    app.run(host='li-say.top:3306', port=50)
 
 
 
