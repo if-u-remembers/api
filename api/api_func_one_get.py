@@ -128,7 +128,7 @@ def new_dict(dicts):
             if 'description' in dicts['ietf-interfaces:interfaces']['interface'][i]:
                 description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
             else:
-                description = 'null'
+                description = None
             ChildrenDict['description'] = description
             ChildrenDict['ipv4'] = ipv4
         else:

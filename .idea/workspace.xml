@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="修改api" />
+    <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="修改api">
+      <change afterPath="$PROJECT_DIR$/git.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_func_one_get.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_func_one_get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +36,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -163,12 +169,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.MysqlApi" />
+      <item itemvalue="Flask server.flask_vue_api" />
+      <item itemvalue="Flask server.Flask (app.py)" />
       <item itemvalue="Python.api_func_one_get" />
+      <item itemvalue="Python.MysqlApi" />
       <item itemvalue="Python.api_func_two_get" />
       <item itemvalue="Python.mysql" />
-      <item itemvalue="Flask server.Flask (app.py)" />
-      <item itemvalue="Flask server.flask_vue_api" />
     </list>
     <recent_temporary>
       <list>
@@ -245,6 +251,7 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="修改api" />
     <option name="LAST_COMMIT_MESSAGE" value="修改api" />
   </component>
@@ -269,10 +276,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="242" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1595039719149" />
-    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1595421602168">
+    <state x="298" y="0" key="CommitChangelistDialog2" timestamp="1595425240946">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595421602168" />
+    <state x="298" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595425240946" />
     <state x="129" y="54" key="DiffContextDialog" timestamp="1595412712490">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
