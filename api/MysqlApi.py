@@ -56,4 +56,3 @@ def deleteData(list):
     :return:
     """
     return 0
-# print(selectData())
