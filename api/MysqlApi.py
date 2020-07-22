@@ -1,5 +1,9 @@
 import pymysql
 from datetime import date
+import json
+
+
+
 
 
 def selectData():
@@ -22,26 +26,34 @@ def selectData():
             charset='utf8'
         )
     except:
-        print("连接数据库失败")
+        # return 'error'
         exit(-1)
 
     cur = conn.cursor()
-    reCount = cur.execute('select * from model_data')
+    sql = cur.execute('select * from model_data')
     res = cur.fetchall()
     cur.close()
     conn.close()
     return res
 
 
-# def updataData(dict):
-# #     # SQL 更新update语句
-# #     sql = "UPDATE USER SET AGE = AGE + 1 WHERE SEX = '%c'" % ('M')
-# #     try:
-# #         # 执行SQL语句
-# #         cursor.execute(sql)
-# #         # 提交数据库执行
-# #         db.commit()
-# #     except:
-# #         # 错误时回滚
-# #         db.rollback()
+def jsonTodict(json):
+    idc = json
+    return 0
+
+def updataData(dict):
+    """
+
+    :param dict:  传入一个字典，更新所有数据。
+    :return:
+    """
+    return 0
+
+
+def deleteData(list):
+    """
+    :param list: 传入一个数组，进行遍历删除并返回结果
+    :return:
+    """
+    return 0
 # print(selectData())

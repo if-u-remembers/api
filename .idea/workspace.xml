@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="" />
+    <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/MysqlApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/MysqlApi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/api_func_one_get.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_func_one_get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +23,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1ej3ovTlvliM0kvrEU9q24n9C9Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -38,7 +45,7 @@
       <recent name="E:\vue\flask_vue_api\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.api_func_two_get">
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
     <configuration name="MysqlApi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flask_vue_api" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,10 +174,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.api_func_two_get" />
-        <item itemvalue="Python.MysqlApi" />
         <item itemvalue="Flask server.Flask (app.py)" />
         <item itemvalue="Python.api_func_one_get" />
+        <item itemvalue="Python.api_func_two_get" />
+        <item itemvalue="Python.MysqlApi" />
         <item itemvalue="Python.api_func_one_put" />
       </list>
     </recent_temporary>
@@ -211,7 +218,10 @@
       <workItem from="1595318668131" duration="656000" />
       <workItem from="1595336320122" duration="6229000" />
       <workItem from="1595347658181" duration="157000" />
-      <workItem from="1595382149196" duration="12869000" />
+      <workItem from="1595382149196" duration="13974000" />
+      <workItem from="1595408936435" duration="13000" />
+      <workItem from="1595409122097" duration="2370000" />
+      <workItem from="1595412415242" duration="268000" />
     </task>
     <servers />
   </component>
@@ -239,42 +249,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1594909595478" />
-    <state width="1323" height="238" key="GridCell.Tab.0.bottom" timestamp="1595405625506">
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1595412538349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595405625506" />
-    <state width="1323" height="238" key="GridCell.Tab.0.center" timestamp="1595405625505">
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595412538349" />
+    <state width="1323" height="176" key="GridCell.Tab.0.center" timestamp="1595412538349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595405625505" />
-    <state width="1323" height="238" key="GridCell.Tab.0.left" timestamp="1595405625505">
+    <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595412538349" />
+    <state width="1323" height="176" key="GridCell.Tab.0.left" timestamp="1595412538348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595405625505" />
-    <state width="1323" height="238" key="GridCell.Tab.0.right" timestamp="1595405625505">
+    <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595412538348" />
+    <state width="1323" height="176" key="GridCell.Tab.0.right" timestamp="1595412538349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="238" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595405625505" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1595401317198">
+    <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595412538349" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1595407223753">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595401317198" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1595401317198">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595407223753" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1595407223753">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1595401317198" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1595401317198">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1595407223753" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1595407223753">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1595401317198" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1595401317198">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1595407223753" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1595407223753">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1595401317198" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1595407223753" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1594909357229">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1594909357229" />
+    <state x="475" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595412643875">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="475" y="280" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1595412643875" />
     <state x="28" y="90" width="1182" height="544" key="dock-window-1" timestamp="1594903566434">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -290,14 +304,14 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flask_vue_api$form_data.coverage" NAME="form_data Coverage Results" MODIFIED="1594902687563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/vue_api" />
-    <SUITE FILE_PATH="coverage/flask_vue_api$api_func_two_get.coverage" NAME="api_func_two_get Coverage Results" MODIFIED="1595405625498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/flask_vue_api$api_func_two_get.coverage" NAME="api_func_two_get Coverage Results" MODIFIED="1595410107224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$get_api.coverage" NAME="get_api Coverage Results" MODIFIED="1594896532621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/resp" />
     <SUITE FILE_PATH="coverage/flask_vue_api$MysqlApi.coverage" NAME="MysqlApi Coverage Results" MODIFIED="1595402437510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-    <SUITE FILE_PATH="coverage/flask_vue_api$api_func_one_get.coverage" NAME="api_func_one_get Coverage Results" MODIFIED="1595339699923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/flask_vue_api$api_func_one_get.coverage" NAME="api_func_one_get Coverage Results" MODIFIED="1595412456183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_func_one_put.coverage" NAME="api_func_one_put Coverage Results" MODIFIED="1595245658708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$flask_vue_api.coverage" NAME="flask_vue_api Coverage Results" MODIFIED="1594909471209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_vue_api$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1595117369531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/flask_vue_api$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1595384213641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_vue_api$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1595412538321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_get.coverage" NAME="api_get Coverage Results" MODIFIED="1594903187309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_func_one.coverage" NAME="api_func_one Coverage Results" MODIFIED="1595151232014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$ceshi.coverage" NAME="ceshi Coverage Results" MODIFIED="1595051141441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
