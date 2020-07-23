@@ -5,15 +5,6 @@ import json
 
 def selectData():
     try:
-        # 连接数据库
-        # conn = pymysql.connect(
-        #     host='127.0.0.1',
-        #     port=3306,
-        #     user='root',
-        #     password='12345678',
-        #     database='data',
-        #     charset='utf8'
-        # )
         conn = pymysql.connect(
             host='li-say.top',
             port=3306,
@@ -35,22 +26,52 @@ def selectData():
     return res
 
 
-def jsonTodict(json):
-    idc = json
-    return 0
+def WhereIdSelectData(id):
+    try:
+        conn = pymysql.connect(
+            host='li-say.top',
+            port=3306,
+            user='root',
+            password='981002',
+            database='office',
+            charset='utf8'
+        )
+    except:
+        return 'error'
+        exit(-1)
 
-def updataData(dict):
-    """
+    cur = conn.cursor()
+    sql = 'select * from model_data where id = {}'.format(id)
+    sqls = cur.execute(sql)
+    res = cur.fetchall()
+    cur.close()
+    conn.close()
+    # 返回一个数据库所有数据的元组
+    return res
 
-    :param dict:  传入一个字典，更新所有数据。
-    :return:
-    """
-    return 0
+
+# print(WhereIdSelectData(2))
 
 
-def deleteData(list):
-    """
-    :param list: 传入一个数组，进行遍历删除并返回结果
-    :return:
-    """
-    return 0
+# def updataData(id, name , model, url, remark , introduce):
+#     """
+#     :param dict:  传入一个字典，更新所有数据。
+#     :return:
+#     """
+#     try:
+#         conn = pymysql.connect(
+#             host='li-say.top',
+#             port=3306,
+#             user='root',
+#             password='981002',
+#             database='office',
+#             charset='utf8'
+#         )
+#     except:
+#         return 'error'
+#         exit(-1)
+#
+#     cur = conn.cursor()
+#     sql = "UPDATE model_data SET name={},model={},url={},remark={},introduce={} where id = {};".format(name, model, url, remark, introduce, id)
+#     currr = cur.execute(sql)
+#     return 0

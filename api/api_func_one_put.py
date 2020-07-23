@@ -1,6 +1,6 @@
 import json
 import requests
-
+from api import api_put
 
 def put_api_one():
     requests.packages.urllib3.disable_warnings()
@@ -29,9 +29,9 @@ def put_api_one():
     resp = requests.put(api_url, data=json.dumps(yangConfig), auth=basicauth, headers=headers, verify=False)
 
     if (resp.status_code >= 200 and resp.status_code <= 299):
-        return "成功".format(resp.status_code)
+        return '200'
     else:
-        return "失败".format(resp.status_code)
+        return '400'
 
 
 # print(put_api_one())
@@ -54,29 +54,6 @@ def put_api_ones(newjson):
     yangConfig['ietf-interfaces:interface']['ietf-ip:ipv4'] = chil
     # return yangConfig
     requests.packages.urllib3.disable_warnings()
+
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
-    headers = {"Accept": "application/yang-data+json",
-               "Content-type": "application/yang-data+json"
-               }
-    basicauth = ("developer", "C1sco12345")
-    try:
-
-        resp = requests.put(api_url, data=json.dumps(yangConfig), auth=basicauth, headers=headers, verify=False)
-
-        if (resp.status_code >= 200 and resp.status_code <= 299):
-            return '200'
-        else:
-            # 传递错误
-            return '400'
-    except:
-        # 超时
-        return '414'
-
-
-
-
-
-
-
-
-
+    return api_put.put_api(api_url, yangConfig)

@@ -2,9 +2,11 @@ from vue_api import form_data
 from api import api_func_one_get
 from api import api_func_one_put
 from api import api_func_two_get
+from api import api_func_two_post_one_batch_distribution
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
-from api import MysqlApi
+from api import api_func_two_post_two_Modify_Model
+import json
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources=r'/*')
@@ -43,7 +45,18 @@ def RestconfApiDataFunctionTwo():
     if request.method == 'GET':
         return api_func_two_get.get_return_vue_oll_data()
     elif request.method == 'POST' or 'PUT':
-        return '0'
+        datas = api_func_two_post_one_batch_distribution.jsontolist(request.data)
+        return json.dumps(api_func_two_post_one_batch_distribution.batch_distribution(datas))
+
+
+@app.route('/SelectWhereId',methods=['POST'])
+def SelectWhereId():
+    return json.dumps(api_func_two_get.get_return_vue_one_id_data(request.data))
+
+
+@app.route('/ModifyToModelInMysql', methods=['POST', 'PUT'])
+def MysqlPutModel():
+    return '0'
 
 
 if __name__ == '__main__':
