@@ -3,9 +3,6 @@ from datetime import date
 import json
 
 
-
-
-
 def selectData():
     try:
         # 连接数据库
@@ -26,7 +23,7 @@ def selectData():
             charset='utf8'
         )
     except:
-        # return 'error'
+        return 'error'
         exit(-1)
 
     cur = conn.cursor()
@@ -34,6 +31,7 @@ def selectData():
     res = cur.fetchall()
     cur.close()
     conn.close()
+    # 返回一个数据库所有数据的元组
     return res
 
 

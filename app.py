@@ -1,10 +1,10 @@
 from vue_api import form_data
 from api import api_func_one_get
 from api import api_func_one_put
+from api import api_func_two_get
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
 from api import MysqlApi
-
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources=r'/*')
@@ -50,9 +50,9 @@ def RestconfApiData2():
 @app.route('/RestconfApiDataFunctionTwo', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionTwo():
     if request.method == 'GET':
-        return '0'
+        return api_func_two_get.get_return_vue_oll_data()
     elif request.method == 'POST' or 'PUT':
-        return 'error 500'
+        return '0'
 
 
 if __name__ == '__main__':
