@@ -38,15 +38,6 @@ def RestconfApiData():
         return api_func_one_put.put_api_ones(datas)
 
 
-# 多ip测试接口 * put/post 接口时发送数据
-@app.route('/RestconfApiDataFunctionOne2', methods=['POST', 'GET', 'PUT'])
-def RestconfApiData2():
-    if request.method == 'GET':
-        return api_func_one_get.new_dict(api_func_one_get.twoIPdata())
-    elif request.method == 'POST' or 'PUT':
-        return api_func_one_put.put_api_one()
-
-
 @app.route('/RestconfApiDataFunctionTwo', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionTwo():
     if request.method == 'GET':
