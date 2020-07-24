@@ -10,7 +10,7 @@ def get_api_one():
     """
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/"
-    # api_url = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
+    # api_url = 'https://li-say.top:6001/restconf/data/ietf-interfaces:interfaces/'
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
     }

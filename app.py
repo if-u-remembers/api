@@ -49,7 +49,7 @@ def RestconfApiDataFunctionTwo():
         return json.dumps(api_func_two_post_one_batch_distribution.batch_distribution(datas))
 
 
-@app.route('/SelectWhereId',methods=['POST'])
+@app.route('/SelectWhereId', methods=['POST'])
 def SelectWhereId():
     return json.dumps(api_func_two_get.get_return_vue_one_id_data(request.data))
 

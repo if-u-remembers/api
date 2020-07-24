@@ -5,6 +5,7 @@ from api import api_put
 def put_api_one():
     requests.packages.urllib3.disable_warnings()
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
+    # api_url = "https://li-say.top:6001/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
                }
