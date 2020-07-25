@@ -17,7 +17,8 @@ def put_api(api_url, yangConfig):
             return '{}'.format(resp.status_code)
     except:
         # 超时
-        return '{}'.format(resp.status_code)
+        # return '{}'.format(resp.status_code)
+        return '414'
 
 
 
