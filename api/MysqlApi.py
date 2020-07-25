@@ -150,20 +150,56 @@ def updataData(id, name , model, url, remark , introduce):
         exit(-1)
 
     cur = conn.cursor()
-    sql = "UPDATE model_data SET name='%s',model= '%s' ,url='%s',remark='%s',introduce='%s' where id = '%s';" % (name, model, url, remark, introduce, int(id))
+    sql = """UPDATE model_data set `name`='{}',`model`={} ,`url`={},`remarks`='{}',`introduce`='{}' where `id` = {};""".format(name, json.dumps(model), json.dumps(pymysql.escape_string(url)), remark, introduce, id)
     currr = cur.execute(sql)
     conn.commit()
     cur.close()
     conn.close()
-    ptint(type(currr))
-    return 0
+    if currr == 1:
+        return '200'
+    elif currr == 0:
+        return '100'
+    else:
+        return '400'
 
-# id = 1
-# name = 'LoopBack1'
-# model = '{"ietf-interfaces:interface": {"name": "Loopback6","description": "WHATEVER6","type": "iana-if-type:softwareLoopback","enabled": True,"ietf-ip:ipv4": {"address": [{"ip": "6.6.6.6","netmask": "255.255.255.0"}]},"ietf-ip:ipv6": {}}}'
-# url = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=Loopback6'
-# remark = '创汇还口'
+
+def AddData(name , model, url, remark , introduce):
+    """
+    :param dict:  传入一个字典，更新所有数据。
+    :return:
+    """
+    try:
+        conn = pymysql.connect(
+            host='li-say.top',
+            port=3306,
+            user='root',
+            password='981002',
+            database='office',
+            charset='utf8'
+        )
+    except:
+        return 'error'
+        exit(-1)
+
+    cur = conn.cursor()
+    sql = """INSERT INTO model_data(`name`,`model`,`url`,`remarks`,`introduce`,`del`) values({},{},{},{},{},{}) ;""".format(json.dumps(name), json.dumps(model), json.dumps(pymysql.escape_string(url)), json.dumps(remark), json.dumps(introduce), '0')
+    currr = cur.execute(sql)
+    conn.commit()
+    cur.close()
+    conn.close()
+    if currr == 1:
+        return '200'
+    elif currr == 0:
+        return '100'
+    else:
+        return '400'
+
+
+# name = 'LoopBack244445'
+# model = '''{"ietf-interfaces:interface": {"name": "Loopback6", "description": "WHATEVER6", "type": "iana-if-type:softwareLoopback","enabled": True,"ietf-ip:ipv4": {"address": [{"ip": "6.6.6.6","netmask": "255.255.255.0"}]},"ietf-ip:ipv6": {}}}'''
+# url = '''https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=Loopback6'''
+# remark = '创汇还'
 # introduce = '回环'
-#
-# updataData(id, name, model, url, remark, introduce)
 
+# print(AddData(name, model, url, remark, introduce))
+# print(selectData())

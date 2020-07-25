@@ -10,18 +10,20 @@ def get_api_one():
     """
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/"
-    # api_url = 'https://li-say.top:6001/restconf/data/ietf-interfaces:interfaces/'
+    # api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
     }
     basicauth = ("developer", "C1sco12345")
+    # basicauth = ("cisco", "cisco123!")
     try:
         resp = requests.get(api_url, auth=basicauth, headers=headers, verify=False)
-        response_json = json.dumps(resp.json(), indent=4)
+        response_json = json.dumps(resp.json(), indent=2)
         return response_json
     except:
         return "414"
 
+# print(get_api_one())
 
 def get_new_api_ones(api_url, headers, basicauth):
     """
@@ -46,6 +48,9 @@ def jsonTodata():
     if datas == '414':
         return '414'
     return datas
+# print(get_api_one())
+# print(jsonTodata())
+
 
 
 def twoIPdata():
@@ -125,15 +130,17 @@ def new_dict(dicts):
             ipv4 = []
             for item in ipv4_data:
                 ipv4.append(item)
-            if 'description' in dicts['ietf-interfaces:interfaces']['interface'][i]:
-                description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
-            else:
-                description = None
-            ChildrenDict['description'] = description
-            ChildrenDict['ipv4'] = ipv4
         else:
             ipv4 = None
             ChildrenDict['ipv4'] = ipv4
+        if "description" in dicts['ietf-interfaces:interfaces']['interface'][i]:
+            description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
+            # print('1')
+        else:
+            description = None
+            # print('2')
+        ChildrenDict['description'] = description
+        ChildrenDict['ipv4'] = ipv4
         NewList.append(ChildrenDict)
         i += 1
 

@@ -3,9 +3,9 @@ from api import api_func_one_get
 from api import api_func_one_put
 from api import api_func_two_get
 from api import api_func_two_post_one_batch_distribution
+from api import api_func_two_post_two_Modify_Model
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
-from api import api_func_two_post_two_Modify_Model
 import json
 
 app = Flask(__name__)
@@ -56,7 +56,12 @@ def SelectWhereId():
 
 @app.route('/ModifyToModelInMysql', methods=['POST', 'PUT'])
 def MysqlPutModel():
-    return '0'
+    return api_func_two_post_two_Modify_Model.ModifyModel(request.data)
+
+
+@app.route('/ModifyToAddModelInMysql', methods=['POST', 'PUT'])
+def ModifyToAddModelInMysql():
+    return api_func_two_post_two_Modify_Model.AddModel(request.data)
 
 
 if __name__ == '__main__':
