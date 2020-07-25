@@ -69,7 +69,7 @@ def intoModelMysql(val):
     except:
         print("连接数据库失败")
         exit(-1)
-    sql = "insert into model_data(name,model,url,del,remarks,introduce)values(%s,%s,%s,%s,%s,%s)"
+    sql = "insert into model_data(name,model,url,del,remarks,introduce,logo)values(%s,%s,%s,%s,%s,%s,%s)"
     cur = conn.cursor()
 
     try:
@@ -122,7 +122,7 @@ def NewModelMysql():
     except:
         return 'error'
         exit(-1)
-    sql = '''create table model_data(id int(8) not null auto_increment, name varchar(25) null,model varchar(2000) null,url varchar(1000) null,del varchar(2) null,remarks varchar(500) null,introduce varchar(1000) null,PRIMARY KEY(id));'''
+    sql = '''create table model_data(id int(8) not null auto_increment, name varchar(25) null,model varchar(2000) null,url varchar(1000) null,del varchar(2) null,remarks varchar(500) null,introduce varchar(1000) null,logo varchar(1000) null,PRIMARY KEY(id));'''
 
     cur = conn.cursor()
     reCount = cur.execute(sql)
@@ -131,7 +131,7 @@ def NewModelMysql():
     return 0
 
 
-def updataData(id, name , model, url, remark , introduce):
+def updataData(id, name , model, url, remark , introduce, logo):
     """
     :param dict:  传入一个字典，更新所有数据。
     :return:
@@ -150,7 +150,7 @@ def updataData(id, name , model, url, remark , introduce):
         exit(-1)
 
     cur = conn.cursor()
-    sql = """UPDATE model_data set `name`='{}',`model`={} ,`url`={},`remarks`='{}',`introduce`='{}' where `id` = {};""".format(name, json.dumps(model), json.dumps(pymysql.escape_string(url)), remark, introduce, id)
+    sql = "UPDATE model_data set `name`='{}',`model`={} ,`url`={},`remarks`='{}',`introduce`='{}', `logo`={} where `id` = {};".format(name, json.dumps(model), json.dumps(pymysql.escape_string(url)), remark, introduce, logo, id)
     currr = cur.execute(sql)
     conn.commit()
     cur.close()
@@ -162,8 +162,19 @@ def updataData(id, name , model, url, remark , introduce):
     else:
         return '400'
 
+# id = 1
+# name = 'LoopBack2444dasd45'
+# model = '''{"ietf-interfaces:interface": {"name": "Loopback6", "description": "WHATEVER6", "type": "iana-if-type:softwareLoopback","enabled": True,"ietf-ip:ipv4": {"address": [{"ip": "6.6.6.6","netmask": "255.255.255.0"}]},"ietf-ip:ipv6": {}}}'''
+# url = '''https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=Loopback6'''
+# remark = '创汇还'
+# introduce = '回环'
+# logo = '2'
+# print(updataData(id, name, model, url, remark, introduce, logo))
+# print(selectData())
 
-def AddData(name , model, url, remark , introduce):
+
+
+def AddData(name , model, url, remark , introduce, logo):
     """
     :param dict:  传入一个字典，更新所有数据。
     :return:
@@ -182,7 +193,7 @@ def AddData(name , model, url, remark , introduce):
         exit(-1)
 
     cur = conn.cursor()
-    sql = """INSERT INTO model_data(`name`,`model`,`url`,`remarks`,`introduce`,`del`) values({},{},{},{},{},{}) ;""".format(json.dumps(name), json.dumps(model), json.dumps(pymysql.escape_string(url)), json.dumps(remark), json.dumps(introduce), '0')
+    sql = """INSERT INTO model_data(`name`,`model`,`url`,`remarks`,`introduce`,`del`,`logo`) values({},{},{},{},{},{},{}) ;""".format(json.dumps(name), json.dumps(model), json.dumps(pymysql.escape_string(url)), json.dumps(remark), json.dumps(introduce), '0', logo)
     currr = cur.execute(sql)
     conn.commit()
     cur.close()
@@ -200,6 +211,7 @@ def AddData(name , model, url, remark , introduce):
 # url = '''https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=Loopback6'''
 # remark = '创汇还'
 # introduce = '回环'
-
-# print(AddData(name, model, url, remark, introduce))
+# logo = '2'
+#
+# print(AddData(name, model, url, remark, introduce, logo))
 # print(selectData())

@@ -13,21 +13,21 @@ import json
 
 
 def ModifyModelJsonData(data):
-    return json.loads(data)
+    return json.loads(data, strict=False)
 
 
 def ModifyModel(datas):
     dict = ModifyModelJsonData(datas)
-    id, modelname, remarks, introduce, url, model = dict['id'], dict['modelname'], dict['remarks'], dict['introduce'], dict['url'], dict['model']
-    return MysqlApi.updataData(id, modelname, model, url, remarks, introduce)
+    id, modelname, remarks, introduce, url, model, logo = dict['id'], dict['modelname'], dict['remarks'], dict['introduce'], dict['url'], dict['model'], dict['logo']
+    return MysqlApi.updataData(id, modelname, model, url, remarks, introduce, logo)
 
 
 def AddModel(datas):
     dict = ModifyModelJsonData(datas)
-    modelname, remarks, introduce, url, model =  dict['modelname'], dict['remarks'], dict['introduce'], dict['url'], dict['model']
+    modelname, remarks, introduce, url, model, logo = dict['modelname'], dict['remarks'], dict['introduce'], dict['url'], dict['model'], dict['logo']
     # print(model)
     # return '0'
-    return MysqlApi.AddData(modelname, model, url, remarks, introduce)
+    return MysqlApi.AddData(modelname, model, url, remarks, introduce, logo)
 
 
-print(MysqlApi.selectData())
+# print(MysqlApi.selectData())

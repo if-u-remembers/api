@@ -9,9 +9,9 @@ def get_func_two_mysql_select_data():
     select_data = selectData()
     list_data = []
     for item in select_data:
-        id, modelname, model, url, dels, remarks, introduce = item[0], item[1], item[2], item[3], item[4], item[5], item[6]
+        id, modelname, model, url, dels, remarks, introduce, logo = item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7]
         children_dict = {}
-        children_dict['id'], children_dict['model'], children_dict['url'], children_dict['dels'] = id, model, url, dels
+        children_dict['id'], children_dict['model'], children_dict['url'], children_dict['dels'], children_dict['logo'] = id, model, url, dels, logo
         list_data.append(children_dict)
     return list_data
 
