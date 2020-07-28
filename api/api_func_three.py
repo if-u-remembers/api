@@ -28,8 +28,11 @@ def GetDdosData():
             children = {}
             # 循环每个设备
             acl = item['input-security-acl']
-            if (acl == '101' or item['if-index'] == 1) and item['v4-protocol-stats']['in-pkts'] != '':
+            if acl == '101' and item['v4-protocol-stats']['in-pkts'] != '':
                 children['id'], children['name'], children['pkts'], children['time'], children['acl'] = item['if-index'], item['name'], item['v4-protocol-stats']['in-pkts'], listtime, item['input-security-acl']
+                olddata = three_mysql_and_func_def.select_ddos_one(item['if-index'])
+                olddata_time, olddata_pkts = olddata[2], olddata[3]
+                # print(olddata_time, olddata_pkts)
                 three_mysql_and_func_def.Add_ddos(children)
             else:
                 pass

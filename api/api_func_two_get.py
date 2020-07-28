@@ -2,6 +2,7 @@ from api.MysqlApi import selectData, WhereIdSelectData
 import json
 import ast
 
+
 def get_func_two_mysql_select_data():
     # 查询到所有数据
     select_data = selectData()
@@ -31,7 +32,8 @@ def get_return_vue_oll_data():
 
 
 def get_return_vue_one_id_data(id):
-    data = WhereIdSelectData(id)
+    mid = json.loads(id)['id']
+    data = WhereIdSelectData(mid)
     list_data = []
     for item in data:
         id, modelname, model, url, dels, remarks, introduce, logo = item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7]

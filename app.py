@@ -13,7 +13,7 @@ CORS(app, supports_credentials=True, resources=r'/*')
 app.config.update(DEBUG=False)
 
 
-# 功能一
+# 功能一 查询所有接口信息 下发信息
 @app.route('/RestconfApiDataFunctionOne', methods=['POST', 'GET', 'PUT'])
 def RestconfApiData():
     if request.method == 'GET':
@@ -27,6 +27,7 @@ def RestconfApiData():
         return api_func_one_put.put_api_ones(datas)
 
 
+# 功能二批量下发及查询所有模板信息
 @app.route('/RestconfApiDataFunctionTwo', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionTwo():
     if request.method == 'GET':
@@ -36,6 +37,7 @@ def RestconfApiDataFunctionTwo():
         return json.dumps(api_func_two_post_one_batch_distribution.batch_distribution(datas))
 
 
+# 功能二查询模板
 @app.route('/SelectWhereId', methods=['POST'])
 def SelectWhereId():
     return json.dumps(api_func_two_get.get_return_vue_one_id_data(request.data))
@@ -47,11 +49,13 @@ def MysqlPutModel():
     return api_func_two_post_two_Modify_Model.ModifyModel(request.data)
 
 
+# 功能二添加模板
 @app.route('/ModifyToAddModelInMysql', methods=['POST', 'PUT'])
 def ModifyToAddModelInMysql():
     return api_func_two_post_two_Modify_Model.AddModel(request.data)
 
 
+# 功能二删除模板
 @app.route('/ModifyToDeleteModelInMysql', methods=['POST', 'PUT'])
 def ModifyToDeleteModelInMysql():
     return api_func_two_post_two_Modify_Model.DelModel(request.data)

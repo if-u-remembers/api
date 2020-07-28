@@ -119,6 +119,30 @@ def select_ddos():
     return res
 
 
+def select_ddos_one(mid):
+    try:
+        conn = pymysql.connect(
+            host='li-say.top',
+            port=3306,
+            user='root',
+            password='981002',
+            database='office',
+            charset='utf8'
+        )
+    except:
+        return 'error'
+        exit(-1)
+    cur = conn.cursor()
+    ssql = "select * from ddos_data where `mid` = {}".format(mid)
+    sql = cur.execute(ssql)
+    res = cur.fetchall()
+    cur.close()
+    conn.close()
+    # 返回一个数据库所有数据的元组
+    return res[-1]
+
+
+# print(select_ddos_one(1))
 # for i in select_ddos():
 #     print(i)
 
