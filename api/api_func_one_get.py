@@ -5,8 +5,8 @@ import urllib3
 
 def get_api_one():
     """
-    调用已经配置好的数据
-    :return: 返回参数
+    调用已经配置好的数据进行 get
+    :return: 返回参数 为一个json 数据或者返回
     """
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/"
@@ -24,6 +24,7 @@ def get_api_one():
         return "414"
 
 # print(get_api_one())
+
 
 def get_new_api_ones(api_url, headers, basicauth):
     """
@@ -120,11 +121,14 @@ def new_dict(dicts):
     i = 0
     # 构建一个空字典，作为最外层
     NewList = []
+    # 进行一个while循环，读取所有列表的数据
     while i < lens:
+        # 创建一个子字典用于存放子数据
         ChildrenDict = {}
         ChildrenDict['name'] = dicts['ietf-interfaces:interfaces']['interface'][i]['name']
         ChildrenDict['enabled'] = dicts['ietf-interfaces:interfaces']['interface'][i]['enabled']
         ChildrenDict['type'] = dicts['ietf-interfaces:interfaces']['interface'][i]['type']
+        # 若ipv4有数据则
         if dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']:
             ipv4_data = dicts['ietf-interfaces:interfaces']['interface'][i]['ietf-ip:ipv4']['address']
             ipv4 = []
@@ -133,6 +137,7 @@ def new_dict(dicts):
         else:
             ipv4 = None
             ChildrenDict['ipv4'] = ipv4
+        # 若存在description
         if "description" in dicts['ietf-interfaces:interfaces']['interface'][i]:
             description = dicts['ietf-interfaces:interfaces']['interface'][i]['description']
             # print('1')

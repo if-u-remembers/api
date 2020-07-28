@@ -150,7 +150,7 @@ def updataData(id, name , model, url, remark , introduce, logo):
         exit(-1)
 
     cur = conn.cursor()
-    sql = "UPDATE model_data set `name`='{}',`model`={} ,`url`={},`remarks`='{}',`introduce`='{}', `logo`={} where `id` = {};".format(name, json.dumps(model), json.dumps(pymysql.escape_string(url)), remark, introduce, logo, id)
+    sql = "UPDATE model_data set `name`='{}',`model`={} ,`url`={},`remarks`='{}',`introduce`='{}', `del` = {}, `logo`={} where `id` = {};".format(name, json.dumps(model), json.dumps(pymysql.escape_string(url)), remark, introduce,'0', logo, id)
     currr = cur.execute(sql)
     conn.commit()
     cur.close()
@@ -173,7 +173,6 @@ def updataData(id, name , model, url, remark , introduce, logo):
 # print(selectData())
 
 
-
 def AddData(name , model, url, remark , introduce, logo):
     """
     :param dict:  传入一个字典，更新所有数据。
@@ -193,25 +192,59 @@ def AddData(name , model, url, remark , introduce, logo):
         exit(-1)
 
     cur = conn.cursor()
-    sql = """INSERT INTO model_data(`name`,`model`,`url`,`remarks`,`introduce`,`del`,`logo`) values({},{},{},{},{},{},{}) ;""".format(json.dumps(name), json.dumps(model), json.dumps(pymysql.escape_string(url)), json.dumps(remark), json.dumps(introduce), '0', logo)
-    currr = cur.execute(sql)
-    conn.commit()
-    cur.close()
-    conn.close()
-    if currr == 1:
+    val = ((name, model, url, remark, introduce, '0', logo),)
+    # sql = """INSERT INTO model_data(`name`,`model`,`url`,`remarks`,`introduce`,`del`,`logo`) values({},{},{},{},{},{},{}) ;""".format(json.dumps(name), json.dumps(model), json.dumps(pymysql.escape_string(url)), json.dumps(remark), json.dumps(introduce), '0', logo)
+    sql = "insert into model_data(`name`,`model`,`url`,`remarks`,`introduce`,`del`,`logo`)values(%s,%s,%s,%s,%s,%s,%s)"
+    try:
+        cur.executemany(sql, val)
+        conn.commit()
+        cur.close()
+        conn.close()
         return '200'
-    elif currr == 0:
-        return '100'
-    else:
+    except:
+        conn.rollback()
         return '400'
 
 
 # name = 'LoopBack244445'
-# model = '''{"ietf-interfaces:interface": {"name": "Loopback6", "description": "WHATEVER6", "type": "iana-if-type:softwareLoopback","enabled": True,"ietf-ip:ipv4": {"address": [{"ip": "6.6.6.6","netmask": "255.255.255.0"}]},"ietf-ip:ipv6": {}}}'''
-# url = '''https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=Loopback6'''
+# model = '{"ietf-interfaces:interface": {"name": "Loopback6", "description": "WHATEVER6", "type": "iana-if-type:softwareLoopback","enabled": True,"ietf-ip:ipv4": {"address": [{"ip": "6.6.6.6","netmask": "255.255.255.0"}]},"ietf-ip:ipv6": {}}}'
+# url = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=Loopback6'
 # remark = '创汇还'
 # introduce = '回环'
 # logo = '2'
+# # val = ((name, model, url, remark, introduce, '0', logo),)
+# print(AddData(name, model, url, remark, introduce,  logo))
+# # print(intoModelMysql(val))
 #
-# print(AddData(name, model, url, remark, introduce, logo))
+# for i in selectData():
+#     print(i)
+
+
+def DelData(id):
+    try:
+        conn = pymysql.connect(
+            host='li-say.top',
+            port=3306,
+            user='root',
+            password='981002',
+            database='office',
+            charset='utf8'
+        )
+    except:
+        return 'error'
+        exit(-1)
+    cur = conn.cursor()
+    sql = "delete from model_data where id ={}".format(id)
+    try:
+        cur.execute(sql)
+        conn.commit()
+        cur.close()
+        conn.close()
+        return '200'
+    except:
+        conn.rollback()
+        return '400'
+
+
+# print(DelData(1))
 # print(selectData())

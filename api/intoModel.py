@@ -2,7 +2,7 @@
     配置模板数据，直接运行配置，或者删除数据表，载入数据表
 """
 from api import MysqlApi
-
+from api import three_mysql_and_func_def
 val = (
           ('LoopBack6',
            '{"ietf-interfaces:interface": {"name": "Loopback6","description": "WHATEVER6","type": "iana-if-type:softwareLoopback","enabled": True,"ietf-ip:ipv4": {"address": [{"ip": "6.6.6.6","netmask": "255.255.255.0"}]},"ietf-ip:ipv6": {}}}',
@@ -16,8 +16,12 @@ val = (
            '创OSPF模板', 'ospf', '0'),
 
           ('acl',
+
            '{"Cisco-IOS-XE-native:access-list": {"Cisco-IOS-XE-acl:standard": [{"name": "cisco1","access-list-seq-rule": [{"sequence": "20","deny": {"std-ace": {"ipv4-prefix": "1.1.1.0"}}},{"sequence": "30","permit": {"std-ace": {"ipv4-prefix": "192.168.50.100"}}}]}],"Cisco-IOS-XE-acl:extended": [{"name": "meraki-fqdn-dns"}]}}',
-           'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-native:native/ip/access-list', '0',
+           'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-native:native/ip/access-list',
+
+
+           '0',
            '创建ACL模板', '可以修改ACL名称、序列号，允许或拒绝哪个网段和策略IP等', '0'),
 
           ('dhcp',
@@ -42,3 +46,5 @@ val = (
 MysqlApi.delModelMysql()
 MysqlApi.NewModelMysql()
 MysqlApi.intoModelMysql(val)
+three_mysql_and_func_def.delModelMysql()
+three_mysql_and_func_def.NewModelMysql()

@@ -11,9 +11,8 @@ import json
 # print(MysqlApi.updataData(id, name, model, url, remark, introduce))
 
 
-
 def ModifyModelJsonData(data):
-    return json.loads(data, strict=False)
+    return json.loads(data)
 
 
 def ModifyModel(datas):
@@ -29,5 +28,16 @@ def AddModel(datas):
     # return '0'
     return MysqlApi.AddData(modelname, model, url, remarks, introduce, logo)
 
+
+def DelModel(id_list):
+    dist = json.loads(id_list)
+    list = dist['id']
+    relist = []
+    for item in list:
+        dist = {}
+        error = MysqlApi.DelData(item)
+        dist['id'], dist['error'] = item, error
+        relist.append(dist)
+    return json.dumps(relist)
 
 # print(MysqlApi.selectData())

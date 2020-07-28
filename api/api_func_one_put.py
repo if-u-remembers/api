@@ -2,6 +2,7 @@ import json
 import requests
 from api import api_put
 
+
 def put_api_one():
     requests.packages.urllib3.disable_warnings()
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
@@ -9,8 +10,8 @@ def put_api_one():
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
                }
-    basicauth = ("cisco", "cisco123!")
-    # basicauth = ("developer", "C1sco12345")
+    # basicauth = ("cisco", "cisco123!")
+    basicauth = ("developer", "C1sco12345")
     yangConfig = {
         "ietf-interfaces:interface": {
             "name": "GigabitEthernet2",
@@ -44,6 +45,7 @@ def put_api_ones(newjson):
     输入修改参数进行数据的修正
     :return:
     """
+    # 获取到数据进行json转dict
     list = json.loads(newjson)
     yangConfig = {"ietf-interfaces:interface": {}}
     dict = list[0]

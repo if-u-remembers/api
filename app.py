@@ -13,20 +13,7 @@ CORS(app, supports_credentials=True, resources=r'/*')
 app.config.update(DEBUG=False)
 
 
-# 默认载入测试
-@app.route('/', methods=['POST', 'GET', 'PUT'])
-def get_post():
-    if request.method == 'POST':
-        return '你进入了post'
-    elif request.method == 'GET':
-        return '你进入了GET'
-    elif request.method == 'PUT':
-        return '你进入了PUT'
-
-
-# vue使用的app开始
-
-# 原本ip
+# 功能一
 @app.route('/RestconfApiDataFunctionOne', methods=['POST', 'GET', 'PUT'])
 def RestconfApiData():
     if request.method == 'GET':
@@ -54,6 +41,7 @@ def SelectWhereId():
     return json.dumps(api_func_two_get.get_return_vue_one_id_data(request.data))
 
 
+# 功能二修改模板
 @app.route('/ModifyToModelInMysql', methods=['POST', 'PUT'])
 def MysqlPutModel():
     return api_func_two_post_two_Modify_Model.ModifyModel(request.data)
@@ -64,8 +52,12 @@ def ModifyToAddModelInMysql():
     return api_func_two_post_two_Modify_Model.AddModel(request.data)
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+@app.route('/ModifyToDeleteModelInMysql', methods=['POST', 'PUT'])
+def ModifyToDeleteModelInMysql():
+    return api_func_two_post_two_Modify_Model.DelModel(request.data)
 
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, threaded=True)
 
 

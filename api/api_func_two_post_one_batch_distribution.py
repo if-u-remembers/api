@@ -51,7 +51,7 @@ def batch_distribution(list):
             if item['id'] in list:
                 children_dict2['id'] = item['id']
                 children_dict2['error'] = '414'
-            re_list2.append(children_dict2)
+                re_list2.append(children_dict2)
         return re_list2
 
 

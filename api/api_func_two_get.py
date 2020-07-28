@@ -7,10 +7,12 @@ def get_func_two_mysql_select_data():
     select_data = selectData()
     list_data = []
     for item in select_data:
+        # 获取到所有的data并进行赋值
         id, modelname, model, url, dels, remarks, introduce, logo = item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7]
         children_dict = {}
         # 如果dels合法
         if dels == '0':
+            # 如果dels为0则运行
             children_dict['id'], children_dict['modelname'], children_dict['remakes'] = id, modelname, remarks
             children_dict['introduce'], children_dict['model'], children_dict['url'], children_dict['logo'] = introduce, model, url, logo
             list_data.append(children_dict)
