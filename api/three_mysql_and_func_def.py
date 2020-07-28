@@ -90,6 +90,8 @@ def Add_ddos(dist):
         conn.rollback()
         cur.close()
         conn.close()
+
+
 # NewModelMysql()
 
 #
@@ -134,19 +136,18 @@ def select_ddos_one(mid):
         exit(-1)
     cur = conn.cursor()
     ssql = "select * from ddos_data where `mid` = {}".format(mid)
-    sql = cur.execute(ssql)
-    res = cur.fetchall()
-    cur.close()
-    conn.close()
-    # 返回一个数据库所有数据的元组
-    return res[-1]
+    try:
+
+        sql = cur.execute(ssql)
+        res = cur.fetchall()
+        cur.close()
+        conn.close()
+        # 返回一个数据库所有数据的元组
+        return res[-1]
+    except:
+        return 0
 
 
 # print(select_ddos_one(1))
 # for i in select_ddos():
 #     print(i)
-
-
-
-
-

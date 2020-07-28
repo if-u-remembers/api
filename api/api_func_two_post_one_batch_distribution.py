@@ -34,13 +34,13 @@ def batch_distribution(list):
             if item['id'] in list:
                 if item['dels'] == '1':
                     children_dict['id'] = item['id']
-                    children_dict['error'] = '500'
+                    children_dict['code'] = '500'
                     # print(children_dict)
                 elif item['dels'] == '0':
                     model = eval(item['model'])
                     ends = api_put.put_api(item['url'], model)
                     children_dict['id'] = item['id']
-                    children_dict['error'] = ends
+                    children_dict['code'] = ends
                 re_list.append(children_dict)
             # print(re_list)
         return re_list
@@ -50,7 +50,7 @@ def batch_distribution(list):
             children_dict2 = {}
             if item['id'] in list:
                 children_dict2['id'] = item['id']
-                children_dict2['error'] = '414'
+                children_dict2['code'] = '414'
                 re_list2.append(children_dict2)
         return re_list2
 

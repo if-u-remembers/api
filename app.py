@@ -7,6 +7,11 @@ from api import api_func_two_post_two_Modify_Model
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
 import json
+from PIL import Image
+import PIL
+import matplotlib.pyplot as plt
+import numpy as np
+import io
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources=r'/*')
@@ -59,6 +64,27 @@ def ModifyToAddModelInMysql():
 @app.route('/ModifyToDeleteModelInMysql', methods=['POST', 'PUT'])
 def ModifyToDeleteModelInMysql():
     return api_func_two_post_two_Modify_Model.DelModel(request.data)
+
+
+@app.route('/img', methods=['GET'])
+def index():
+    # 数据准备
+    x = np.arange(1440)
+    y = x
+
+    fig = plt.figure()
+    plt.plot(x, y**2)
+    canvas = fig.canvas
+    # 上面这段代码和上面注释掉的代码效果一样
+    # # 方法1
+    buffer = io.BytesIO()
+    canvas.print_png(buffer)
+    data = buffer.getvalue()
+    buffer.close()
+    # 向前端返回图像
+    res = app.make_response(data)
+    res.headers["Content-Type"] = "image/png"
+    return res
 
 
 if __name__ == '__main__':
