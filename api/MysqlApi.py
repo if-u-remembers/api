@@ -122,7 +122,7 @@ def NewModelMysql():
     except:
         return 'error'
         exit(-1)
-    sql = '''create table model_data(id int(8) not null auto_increment, name varchar(25) null,model varchar(2000) null,url varchar(1000) null,del varchar(2) null,remarks varchar(500) null,introduce varchar(1000) null,logo varchar(1000) null,PRIMARY KEY(id));'''
+    sql = '''create table model_data(id int(8) not null auto_increment, name varchar(25) null,model varchar(2000) null,url varchar(1000) null,del varchar(2) null,remarks varchar(500) null,introduce varchar(1000) null,logo int(8) null,PRIMARY KEY(id));'''
 
     cur = conn.cursor()
     reCount = cur.execute(sql)

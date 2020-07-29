@@ -67,6 +67,7 @@ def ModifyToDeleteModelInMysql():
     return api_func_two_post_two_Modify_Model.DelModel(request.data)
 
 
+# 功能三
 @app.route('/RestconfApiDataFunctionThree', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionThree():
     return api_func_three.intomysql()

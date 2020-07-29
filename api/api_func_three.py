@@ -81,7 +81,7 @@ def intomysql():
     return json.dumps(list)
 
 
-# intomysql()
+intomysql()
 
 
 

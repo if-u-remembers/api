@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="修改api">
+      <change afterPath="$PROJECT_DIR$/api/api_func_four.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/MysqlApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/MysqlApi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/api_func_three.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_func_three.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_func_two_post_two_Modify_Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_func_two_post_two_Modify_Model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/three_mysql_and_func_def.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/three_mysql_and_func_def.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/intoModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/intoModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +61,8 @@
       <recent name="E:\vue\flask_vue_api\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Flask server.Flask (app.py)">
-    <configuration name="MysqlApi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.api_func_four">
+    <configuration name="api_func_four" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flask_vue_api" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,7 +75,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/MysqlApi.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/api_func_four.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -184,15 +186,15 @@
       <item itemvalue="Python.api_func_three" />
       <item itemvalue="Python.three_mysql_and_func_def (1)" />
       <item itemvalue="Python.intoModel" />
-      <item itemvalue="Python.MysqlApi" />
+      <item itemvalue="Python.api_func_four" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.api_func_four" />
+        <item itemvalue="Python.intoModel" />
         <item itemvalue="Flask server.Flask (app.py)" />
         <item itemvalue="Python.api_func_three" />
-        <item itemvalue="Python.intoModel" />
         <item itemvalue="Python.three_mysql_and_func_def (1)" />
-        <item itemvalue="Python.MysqlApi" />
       </list>
     </recent_temporary>
   </component>
@@ -251,6 +253,7 @@
       <workItem from="1595816193287" duration="20687000" />
       <workItem from="1595902208072" duration="5885000" />
       <workItem from="1595916429599" duration="28122000" />
+      <workItem from="1596009318892" duration="12664000" />
     </task>
     <task id="LOCAL-00001" summary="修改api">
       <created>1595412735954</created>
@@ -340,62 +343,62 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="722" y="147" width="511" height="461" key="GridCell.Tab.-1.right/0.0.1366.768@0.0.1366.768" timestamp="1595904899972" />
-    <state width="1306" height="132" key="GridCell.Tab.0.bottom" timestamp="1595999656442">
+    <state width="1323" height="256" key="GridCell.Tab.0.bottom" timestamp="1596023981068">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="107" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595510880532" />
-    <state width="1306" height="132" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1595999656442" />
-    <state width="1306" height="132" key="GridCell.Tab.0.center" timestamp="1595999656442">
+    <state width="1323" height="256" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596023981068" />
+    <state width="1323" height="256" key="GridCell.Tab.0.center" timestamp="1596023981068">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="107" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595510880532" />
-    <state width="1306" height="132" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1595999656442" />
-    <state width="1306" height="132" key="GridCell.Tab.0.left" timestamp="1595999656442">
+    <state width="1323" height="256" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1596023981068" />
+    <state width="1323" height="256" key="GridCell.Tab.0.left" timestamp="1596023981068">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="107" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595510880532" />
-    <state width="1306" height="132" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1595999656442" />
-    <state width="1306" height="132" key="GridCell.Tab.0.right" timestamp="1595999656442">
+    <state width="1323" height="256" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1596023981068" />
+    <state width="1323" height="256" key="GridCell.Tab.0.right" timestamp="1596023981068">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="107" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595510880532" />
-    <state width="1306" height="132" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1595999656442" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.bottom" timestamp="1595996052171">
+    <state width="1323" height="256" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1596023981068" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.bottom" timestamp="1596022095155">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595423277198" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1595996052171" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.center" timestamp="1595996052170">
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596022095155" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.center" timestamp="1596022095155">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1595423277198" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1595996052170" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.left" timestamp="1595996052170">
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1596022095155" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.left" timestamp="1596022095155">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1595423277198" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1595996052170" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.right" timestamp="1595996052170">
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1596022095155" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.right" timestamp="1596022095155">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1595423277198" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1595996052170" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.bottom" timestamp="1595996052161">
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1596022095155" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.bottom" timestamp="1596022095144">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1595996052161" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.center" timestamp="1595996052160">
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596022095144" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.center" timestamp="1596022095143">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1595996052160" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.left" timestamp="1595996052160">
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1596022095143" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.left" timestamp="1596022095143">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1595996052160" />
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.right" timestamp="1595996052161">
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1596022095143" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.right" timestamp="1596022095143">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1595996052161" />
+    <state x="770" y="117" width="496" height="414" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1596022095143" />
     <state x="521" y="94" key="RollbackChangesDialog" timestamp="1595944916793">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -412,11 +415,11 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="234" y="119" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.768@0.0.1366.768" timestamp="1595927636749" />
-    <state x="770" y="117" width="512" height="482" key="dock-window-1" timestamp="1595927654606">
+    <state x="770" y="117" width="512" height="482" key="dock-window-1" timestamp="1596022291171">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="28" y="90" width="1182" height="544" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1594903566434" />
-    <state x="770" y="117" width="512" height="482" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1595927654606" />
+    <state x="770" y="117" width="512" height="482" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1596022291171" />
     <state x="847" y="0" width="526" height="775" key="dock-window-2" timestamp="1595948840873">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -429,19 +432,20 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="324" y="90" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1594909350803" />
-    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup" timestamp="1595991559440">
+    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup" timestamp="1596015709263">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595470912427" />
-    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1595991559440" />
+    <state x="346" y="52" width="672" height="716" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1596015709263" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flask_vue_api$mysql.coverage" NAME="mysql Coverage Results" MODIFIED="1595428249073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_func_two_get.coverage" NAME="api_func_two_get Coverage Results" MODIFIED="1595679900097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_func_one_get.coverage" NAME="api_func_one_get Coverage Results" MODIFIED="1595600389284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/flask_vue_api$api_func_four.coverage" NAME="api_func_four Coverage Results" MODIFIED="1596023337981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_func_one_put.coverage" NAME="api_func_one_put Coverage Results" MODIFIED="1595601055138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_func_two_post_two_Modify_Model.coverage" NAME="api_func_two_post_two_Modify_Model Coverage Results" MODIFIED="1595665943265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-    <SUITE FILE_PATH="coverage/flask_vue_api$intoModel.coverage" NAME="intoModel Coverage Results" MODIFIED="1595998808104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/flask_vue_api$intoModel.coverage" NAME="intoModel Coverage Results" MODIFIED="1596020841121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$three_mysql.coverage" NAME="three_mysql Coverage Results" MODIFIED="1595765321905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_get.coverage" NAME="api_get Coverage Results" MODIFIED="1594903187309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$form_data.coverage" NAME="form_data Coverage Results" MODIFIED="1594902687563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/vue_api" />
@@ -452,9 +456,9 @@
     <SUITE FILE_PATH="coverage/flask_vue_api$flask_vue_api.coverage" NAME="flask_vue_api Coverage Results" MODIFIED="1594909471209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_vue_api$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1595427506089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_vue_api$three_mysql_and_func_def__1_.coverage" NAME="three_mysql_and_func_def (1) Coverage Results" MODIFIED="1595991707988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-    <SUITE FILE_PATH="coverage/flask_vue_api$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1595999289777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask_vue_api$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1596010280143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_vue_api$api_func_one.coverage" NAME="api_func_one Coverage Results" MODIFIED="1595151232014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$ceshi.coverage" NAME="ceshi Coverage Results" MODIFIED="1595051141441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-    <SUITE FILE_PATH="coverage/flask_vue_api$api_func_three.coverage" NAME="api_func_three Coverage Results" MODIFIED="1595999130567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/flask_vue_api$api_func_three.coverage" NAME="api_func_three Coverage Results" MODIFIED="1596009341965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
   </component>
 </project>
