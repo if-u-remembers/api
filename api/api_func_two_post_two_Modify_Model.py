@@ -36,7 +36,7 @@ def DelModel(id_list):
     for item in list:
         dist = {}
         error = MysqlApi.DelData(item)
-        dist['id'], dist['error'] = item, error
+        dist['id'], dist['code'] = item, error
         relist.append(dist)
     return json.dumps(relist)
 

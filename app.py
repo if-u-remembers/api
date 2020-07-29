@@ -4,6 +4,7 @@ from api import api_func_one_put
 from api import api_func_two_get
 from api import api_func_two_post_one_batch_distribution
 from api import api_func_two_post_two_Modify_Model
+from api import api_func_three
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
 import json
@@ -66,6 +67,12 @@ def ModifyToDeleteModelInMysql():
     return api_func_two_post_two_Modify_Model.DelModel(request.data)
 
 
+@app.route('/RestconfApiDataFunctionThree', methods=['POST', 'GET', 'PUT'])
+def RestconfApiDataFunctionThree():
+    return api_func_three.intomysql()
+
+
+# 功能四代码
 @app.route('/img', methods=['GET'])
 def index():
     # 数据准备
@@ -84,6 +91,7 @@ def index():
     # 向前端返回图像
     res = app.make_response(data)
     res.headers["Content-Type"] = "image/png"
+    print(res)
     return res
 
 
