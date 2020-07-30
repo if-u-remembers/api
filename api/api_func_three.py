@@ -7,13 +7,13 @@ import json
 
 
 def GetDdosData_new():
-    # api = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
-    api = 'https://li-say.top:6002/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
+    api = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
+    # api = 'https://li-say.top:6002/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
                }
-    # basicauth = ("developer", "C1sco12345")
-    basicauth = ("cisco", "cisco123!")
+    basicauth = ("developer", "C1sco12345")
+    # basicauth = ("cisco", "cisco123!")
 
     try:
         datas = api_func_one_get.get_new_api_ones(api, headers, basicauth)
@@ -55,8 +55,8 @@ def GetDdosData_new():
         # 获得grade参数和 new参数
         grade_news_list = three_mysql_and_func_def.risk_assessment(intlist)
         grade = grade_news_list[0]
-        news = grade_news_list[1]
-        mysql_data = {"grade": grade, "news": news, "intoerror": json.dumps(intlist), "time": listtime}
+        news_intlist = grade_news_list[1]
+        mysql_data = {"grade": grade, "intoerror": json.dumps(news_intlist), "time": listtime, "news": 'null'}
         val = ((mysql_data['grade'], mysql_data['news'], mysql_data['intoerror'], mysql_data['time']),)
         three_mysql_and_func_def.intoModelMysql(val)
         return mysql_data
@@ -76,7 +76,7 @@ def intomysql():
     list = []
     for item in res:
         chilird = {}
-        chilird['id'], chilird['time'], chilird['grade'], chilird['new'], chilird['intoerror'] = item[0], item[1], item[2], item[3], json.loads(item[4])
+        chilird['id'], chilird['time'], chilird['grade'], chilird['intoerror'] = item[0], item[1], item[2], json.loads(item[4])
         list.append(chilird)
     return json.dumps(list)
 

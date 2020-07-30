@@ -3,6 +3,8 @@ from api import api_func_one_get
 import json
 import time
 from datetime import datetime
+from api import api_func_t
+
 
 def CreateMysqlTable():
     """
@@ -214,13 +216,13 @@ def time_pkts(olddata_dist, newdata_dist, limit_time):
             order = 0
             # 若大于5G/s ，小于10G/s ...以此类推
         elif 5*1048576 <= kbps < 10*1048576:
-            error = '警告'
+            error = '警告!'
             order = 1
         elif 10*1048576 <= kbps < 30*1048576:
-            error = '危险'
+            error = '危险级别！已配置接口模板'
             order = 2
         elif 30*1048576 <= kbps:
-            error = '高危'
+            error = '高危级别！已关闭接口'
             order = 3
     else:
         error = '正常'
@@ -234,24 +236,32 @@ def time_pkts(olddata_dist, newdata_dist, limit_time):
 def risk_assessment(lists):
     orders = []
     news_list = []
-    i = 1
     for item in lists:
         orders.append(item['order'])
+        new_dict = item
         if item['order'] == 0:
-            news = '【'+str(i)+'】设备' + item['name'] + '一切正常,设备速率为：' + str(item['rate']) + ' kbps '
+            new_dict['news'] = item['name'] + '接口一切正常'
+            new_dict['operation'] = None
         elif item['order'] == 1:
-            news = '【'+str(i)+'】设备' + item['name'] + '不正常,设备速率为：' + str(item['rate']) + ' kbps, 超出一般接口的' \
-                                                                                       '一般速率，疑似为Ddos攻击，向您发出警告！ '
+            new_dict['news'] = item['name'] + '接口不正常，向您发出警告！ '
+            new_dict['operation'] = '警告级别，未执行任何操作'
         elif item['order'] == 2:
-            news = '【'+str(i)+'】设备' + item['name'] + '存在异常,设备速率为：' + str(item['rate']) + ' kbps,大量超出一般' \
-                                                                                         '接口的速率，系统已经自动下发ACL配置防范DDOS攻击 '
+            new_dict['news'] = item['name'] + '接口存在异常，系统将自动下发ACL配置防范DDOS攻击！'
+            try:
+                # api_func_t.acl()
+                new_dict['operation'] = '危险级别，系统成功自动下发ACL配置防范DDOS攻击！'
+            except:
+                new_dict['operation'] = '危险级别，系统自动下发ACL配置防范DDOS攻击失败！'
         elif item['order'] == 3:
-            news = '【'+str(i)+'】设备' + item['name'] + '存在严重异常,设备速率为：' + str(item['rate']) + ' kbps,严重超出一般' \
-                                                                                         '接口的速率，系统已自动将受到疑似DDOS攻击的端口关闭 '
-        i += 1
-        news_list.append(news)
+            new_dict['news'] = item['name'] + '接口存在严重异常，系统将自动将受到疑似DDOS攻击的端口关闭！'
+            try:
+                # api_func_t.down(item['name'])
+                new_dict['operation'] = '高危险级别，系统已成功自动将受到疑似DDOS攻击的端口关闭！'
+            except:
+                new_dict['operation'] = '高危险级别，系统自动将受到疑似DDOS攻击的端口关闭失败，请手动执行关闭！'
+        news_list.append(new_dict)
     grade = max(orders)
-    relist = [grade, ''.join(news_list)]
+    relist = [grade, news_list]
     # print(grade, news_list)
     return relist
 
@@ -262,7 +272,8 @@ def risk_assessment(lists):
 #         {'id': 1, 'order': 2, 'rate': 23.21, 'name': 'GigabitEthernet2'},
 #         {'id': 0, 'order': 3, 'rate': 0, 'name': 'Control Plane0'}
 # ]
-# print(risk_assessment(list))
+# for i in risk_assessment(list)[1]:
+#     print(i)
 # old = {"time": '2020-07-28 23:30:04', "pkts": 6}
 # new = {"time": '2020-07-28 23:31:03', "pkts": 481554, "id": 5}
 # print(time_pkts(old, new, 6000))
