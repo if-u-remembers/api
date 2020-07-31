@@ -28,7 +28,7 @@ def down(name):
     requests.packages.urllib3.disable_warnings()
     api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2"
     headers = { "Accept": "application/yang-data+json",
-                "Content-type":"application/yang-data+json"
+                "Content-type": "application/yang-data+json"
         }
     basicauth = ("developer", "C1sco12345")
     yangConfig = {"ietf-interfaces:interface": {

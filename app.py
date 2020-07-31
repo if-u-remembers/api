@@ -5,14 +5,18 @@ from api import api_func_two_get
 from api import api_func_two_post_one_batch_distribution
 from api import api_func_two_post_two_Modify_Model
 from api import api_func_three
+from api import api_func_four
+from api import api_func_four_new_img
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
 import json
-from PIL import Image
-import PIL
-import matplotlib.pyplot as plt
-import numpy as np
 import io
+import matplotlib.pyplot as plt
+from pylab import mpl
+import numpy as np
+
+
+
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources=r'/*')
@@ -70,30 +74,21 @@ def ModifyToDeleteModelInMysql():
 # 功能三
 @app.route('/RestconfApiDataFunctionThree', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionThree():
+    api_func_three.intomysql()
     return api_func_three.intomysql()
 
 
-# 功能四代码
-@app.route('/img', methods=['GET'])
-def index():
-    # 数据准备
-    x = np.arange(1440)
-    y = x
+# 功能四代码,获取各种图片的json base64代码
+@app.route('/RestconfApiDataFunctionFourImgBase64', methods=['POST', 'GET', 'PUT'])
+def RestconfApiDataFunctionFourImgBase64():
+    return '0'
 
-    fig = plt.figure()
-    plt.plot(x, y**2)
-    canvas = fig.canvas
-    # 上面这段代码和上面注释掉的代码效果一样
-    # # 方法1
-    buffer = io.BytesIO()
-    canvas.print_png(buffer)
-    data = buffer.getvalue()
-    buffer.close()
-    # 向前端返回图像
-    res = app.make_response(data)
-    res.headers["Content-Type"] = "image/png"
-    print(res)
-    return res
+
+# 功能四获取直接的json数据格式
+@app.route('/RestconfApiDataFunctionFour', methods=['POST', 'GET', 'PUT'])
+def RestconfApiDataFunctionFour():
+    lens = int(request.data)
+    return api_func_four.rejsondata(lens)
 
 
 if __name__ == '__main__':

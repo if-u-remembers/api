@@ -7,11 +7,11 @@ val = (
           ('LoopBack6',
            '{"ietf-interfaces:interface": {"name": "Loopback6","description": "WHATEVER6","type": "iana-if-type:softwareLoopback","enabled": True,"ietf-ip:ipv4": {"address": [{"ip": "6.6.6.6","netmask": "255.255.255.0"}]},"ietf-ip:ipv6": {}}}',
            'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=Loopback6',
-           '0', '创汇还口', '回环', 1),
+           '0', '创环回口', '可批量下发环回口配置、IP、掩码等', 1),
           ('ospf',
            '{"Cisco-IOS-XE-native:router": {"Cisco-IOS-XE-ospf:ospf": [{"id": 1,"router-id": "192.168.1.60","network": [{ "ip": "172.16.19.0","mask": "0.0.0.255","area": 0},{"ip": "172.16.20.0","mask": "0.0.0.255","area": 9}]},{"id": 2,"router-id": "192.168.1.10","network": [{"ip": "172.16.19.0","mask": "0.0.0.255","area": 0},{"ip": "172.16.20.0","mask": "0.0.0.255","area": 9}]}]}}',
            'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-native:native/router', '0',
-           '创OSPF模板', 'ospf', 2),
+           '创OSPF模板', '可以配置router-id和宣告相应的网段等', 2),
           ('acl',
            '{"Cisco-IOS-XE-native:access-list": {"Cisco-IOS-XE-acl:standard": [{"name": "cisco1","access-list-seq-rule": [{"sequence": "20","deny": {"std-ace": {"ipv4-prefix": "1.1.1.0"}}},{"sequence": "30","permit": {"std-ace": {"ipv4-prefix": "192.168.50.100"}}}]}],"Cisco-IOS-XE-acl:extended": [{"name": "meraki-fqdn-dns"}]}}',
            'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-native:native/ip/access-list',
@@ -27,7 +27,7 @@ val = (
         ('nat',
          '{"Cisco-IOS-XE-nat:nat": {"pool": [{"id": "cisco1","start-address": "172.16.1.10","end-address": "172.16.1.66","netmask": "255.255.255.0"}],"inside": {"source": {"list": [{"id": 66,"pool-with-vrf": {"pool": [{"name": "cisco1"}]}}],"static": {"nat-static-transport-list": [{"local-ip": "172.16.1.3","global-ip": "10.10.20.48"}]}}}}}',
         'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-native:native/ip/nat', '0',
-        '创建NAT模板', 'nat', 6)
+        '创建NAT模板', '可配置nat地址池，实现公网和私网的转换等', 6)
 )
 # 清空并载入原本的模板数据库
 
