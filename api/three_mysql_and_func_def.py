@@ -336,3 +336,7 @@ def selectData():
     conn.close()
     # 返回一个数据库所有数据的元组
     return res
+
+
+# for item in selectData():
+#     print(item)

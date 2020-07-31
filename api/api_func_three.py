@@ -78,10 +78,11 @@ def intomysql():
         chilird = {}
         chilird['id'], chilird['time'], chilird['grade'], chilird['intoerror'] = item[0], item[1], item[2], json.loads(item[4])
         list.append(chilird)
-    return json.dumps(list)
-
-
-# intomysql()
+    print(len(list))
+    # return json.dumps(list)
+    return list
 #
 
+# for item in intomysql():
+#     print(item)
 

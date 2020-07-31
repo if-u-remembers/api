@@ -1,6 +1,7 @@
 import base64
 import json
 import matplotlib
+import squarify
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,12 +29,6 @@ class newimg:
         self.new_dict = dict(zip(self.name_list, self.new_list))
         self.imgname = imgname
 
-    def Pie(self) -> object:
-        return 0
-
-    def Lines(self):
-        return 0
-
     def Waffle(self):
         total = sum(self.new_dict.values())
         # lables_list = []
@@ -42,8 +37,8 @@ class newimg:
         #     lables_list.append(str)
         plt.figure(
             FigureClass=Waffle,
-            rows=8,
-            columns=12,
+            rows=10,
+            columns=13,
             values=self.new_dict,
             # 设置图例的位置
             legend={
@@ -51,20 +46,20 @@ class newimg:
                 'bbox_to_anchor': (1, 1),
                 # 'ncol': len(self.new_list),
                 'framealpha': 0,
-                'fontsize': 12
+                'fontsize': 17
             },
-            figsize=(12, 8),
+            figsize=(15, 8),
             dpi=150,
-            labels = ['{} {:.1f}%'.format(k, (v/total*100)) for k, v in self.new_dict.items()],
-            title={
-                'label': self.key,
-                'loc': 'left',
-                'fontdict': {
-                    'fontsize': 30,
-                }
-            }
+            labels=['{:.1f}% {} {}'.format((v/total*100),' ', k) for k, v in self.new_dict.items()]
+            # title={
+            #     'label': self.imgname,
+            #     'loc': 'left',
+            #     'fontdict': {
+            #         'fontsize': 30,
+            #     }
+            # }
         )
-        plt.savefig("./api/img/{}".format(self.imgname))
+        plt.savefig("./api/img/{}".format(self.key))
         # plt.show()
 
 
@@ -77,25 +72,87 @@ def reimg_cup_time():
     Ldata = api_func_four.getdata()
     new_list = [Ldata[2], Ldata[3], Ldata[4]]
     list = ['five_seconds', 'one_minute', 'five_minutes']
+    namelist = ['Cup ratio in five seconds', 'Proportion of cup per minute', 'Proportion of cup in five minutes']
     i = 0
     while i <= 2:
-        ad = newimg(new_list[i], list[i], list[i])
+        ad = newimg(new_list[i], list[i], namelist[i])
         ad.Waffle()
         print('成功生成', list[i])
         i += 1
 
 
+def datatof():
+    data = api_func_four.getdata()[0]
+    lens = len(data)
+    order = data[19:lens]
+    order_num = 0
+    new_dict = {}
+    for item in order:
+        order_num += item['invocation_count']
+    new_dict['order'] = order_num
+    for item in data[0:19]:
+        new_dict[item['name']] = item['invocation_count']
+
+    return new_dict
+
+
+def countimg():
+    datas = datatof()
+    # 中文及负号处理办法
+    plt.rcParams['font.sans-serif'] = 'Microsoft YaHei'
+    plt.rcParams['axes.unicode_minus'] = False
+
+    # 数据创建
+    keys = list(datas.keys())
+    values = list(datas.values())
+    # 绘图details
+    colors = ['steelblue', '#9999ff', 'red', 'indianred', 'deepskyblue', 'lime', 'magenta', 'violet', 'peru', 'green',
+              'yellow', 'orange', 'tomato', 'lawngreen', 'cyan', 'darkcyan', 'dodgerblue', 'teal', 'tan', 'royalblue']
+    plt.figure(figsize=(22.5, 12))
+    plot = squarify.plot(
+                         norm_x=100,
+                         norm_y=100,
+                         sizes=values,  # 指定绘图数据
+                         label=keys,  # 指定标签
+                         color=colors,  # 指定自定义颜色
+                         alpha=1,  # 指定透明度
+                         value=values,  # 添加数值标签
+                         edgecolor='white',  # 设置边界框为白色
+                         linewidth=10  # 设置边框宽度为3
+                         )
+
+    # 设置标签大小为10
+    # plt.rc('font', size=10)
+    # 除坐标轴
+    plt.axis('off')
+    # 除上边框和右边框刻度
+    plt.tick_params(top='off', right='off')
+    # 图形展示
+    # plt.savefig("./api/img/count")
+    plt.savefig("./img/counts")
+    print('成功生成count')
+
+# countimg()
+
+
 def rebase64():
+    countimg()
     reimg_cup_time()
-    list = ['five_seconds', 'one_minute', 'five_minutes']
+    list1 = ['five_seconds', 'one_minute', 'five_minutes']
+    namelist1 = ['Cup ratio in five seconds', 'Proportion of cup per minute', 'Proportion of cup in five minutes']
     relistdata = []
-    for item in list:
-        with open("./img/{}.png".format(item), 'rb') as f:
-        # with open("./api/img/{}.png".format(item), 'rb') as f:
+    i = 0
+    with open("./api/img/count.png", 'rb') as c:
+        base64_data = base64.b64encode(c.read())
+        cs = base64_data.decode()
+        dictss = {"title": 'All thread runs', "base64": cs}
+        relistdata.append(dictss)
+    for item in list1:
+        with open("./api/img/{}.png".format(item), 'rb') as f:
+            # with open("./api/img/{}.png".format(item), 'rb') as f:
             base64_data = base64.b64encode(f.read())
             s = base64_data.decode()
-            relistdata.append(s)
-    return json.dumps(relistdata)
+            dict = {"title": namelist1[i], "base64": s}
+            relistdata.append(dict)
+    return relistdata
 
-
-# print(rebase64())

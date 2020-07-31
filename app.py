@@ -75,24 +75,16 @@ def ModifyToDeleteModelInMysql():
 # 功能三
 @app.route('/RestconfApiDataFunctionThree', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionThree():
-    api_func_three.intomysql()
+    # api_func_three.intomysql()
     return api_func_three.intomysql()
 
 
 # 功能四代码,获取各种图片的json base64代码
 @app.route('/RestconfApiDataFunctionFourImgBase64', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionFourImgBase64():
-    # return api_func_four_new_img.rebase64()
-    api_func_four_new_img.reimg_cup_time()
-    list = ['five_seconds', 'one_minute', 'five_minutes']
-    relistdata = []
-    for item in list:
-        with open("./api/img/{}.png".format(item), 'rb') as f:
-        # with open("./api/img/{}.png".format(item), 'rb') as f:
-            base64_data = base64.b64encode(f.read())
-            s = base64_data.decode()
-            relistdata.append(s)
-    return json.dumps(relistdata)
+    return json.dumps(api_func_four_new_img.rebase64())
+
+    # return json.dumps(relistdata)
 
 
 # 功能四获取直接的json数据格式
