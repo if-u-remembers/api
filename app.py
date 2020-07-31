@@ -87,8 +87,11 @@ def RestconfApiDataFunctionFourImgBase64():
 # 功能四获取直接的json数据格式
 @app.route('/RestconfApiDataFunctionFour', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionFour():
-    lens = int(request.data)
-    return api_func_four.rejsondata(lens)
+    if request.method == 'GET':
+        return api_func_four.rejsondata(25)
+    elif request.method == 'POST' or 'PUT':
+        lens = int(request.data)
+        return api_func_four.rejsondata(lens)
 
 
 if __name__ == '__main__':
