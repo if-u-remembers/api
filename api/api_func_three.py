@@ -71,16 +71,16 @@ def GetDdosData_new():
 def intomysql():
     # 获取新的数据
     # 执行，但是数据不适用，备用
-    new_mysql_data = GetDdosData_new()
+    GetDdosData_new()
     res = three_mysql_and_func_def.selectData()
     list = []
     for item in res:
         chilird = {}
         chilird['id'], chilird['time'], chilird['grade'], chilird['intoerror'] = item[0], item[1], item[2], json.loads(item[4])
         list.append(chilird)
-    print(len(list))
-    # return json.dumps(list)
-    return list
+    # print(len(list))
+    return json.dumps(list)
+    # return list
 #
 
 # for item in intomysql():

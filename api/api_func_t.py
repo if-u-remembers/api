@@ -3,7 +3,7 @@ import json
 import requests
 
 
-def acl():
+def acl(name):
     # create a variable object that represents the ssh cli session
     sshCli = ConnectHandler(
             device_type='cisco_ios',
@@ -18,19 +18,22 @@ def acl():
         'int Loopback1',
         'ip access-group 101 in'
     ]
-    # print("Sending the config commands.")
+    config_commands[0] = 'int '+ name
+    print("Sending the config commands.")
     output = sshCli.send_config_set(config_commands)
     return output
-    # print("Config output from the device:\n{}\n".format(output))
+    print("Config output from the device:\n{}\n".format(output))
 
 
 def down(name):
     requests.packages.urllib3.disable_warnings()
-    api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2"
+    # api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2"
+    api_url = "https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet2"
     headers = { "Accept": "application/yang-data+json",
                 "Content-type": "application/yang-data+json"
         }
-    basicauth = ("developer", "C1sco12345")
+    # basicauth = ("developer", "C1sco12345")
+    basicauth = ("cisco", "cisco123!")
     yangConfig = {"ietf-interfaces:interface": {
         "name": "GigabitEthernet2",
         "description": "Network Interface",

@@ -248,14 +248,14 @@ def risk_assessment(lists):
         elif item['order'] == 2:
             new_dict['news'] = item['name'] + '接口存在异常，系统将自动下发ACL配置防范DDOS攻击！'
             try:
-                # api_func_t.acl()
+                api_func_t.acl(item['name'])
                 new_dict['operation'] = '危险级别，系统成功自动下发ACL配置防范DDOS攻击！'
             except:
                 new_dict['operation'] = '危险级别，系统自动下发ACL配置防范DDOS攻击失败！'
         elif item['order'] == 3:
             new_dict['news'] = item['name'] + '接口存在严重异常，系统将自动将受到疑似DDOS攻击的端口关闭！'
             try:
-                # api_func_t.down(item['name'])
+                api_func_t.down(item['name'])
                 new_dict['operation'] = '高危险级别，系统已成功自动将受到疑似DDOS攻击的端口关闭！'
             except:
                 new_dict['operation'] = '高危险级别，系统自动将受到疑似DDOS攻击的端口关闭失败，请手动执行关闭！'
