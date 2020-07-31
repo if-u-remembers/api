@@ -97,12 +97,16 @@ def rejsondata(lenss):
     recount_list, reavg_list, refive_secinds_list, reone_min_list, refive_min_list = getdata()
     relict = {
         "InvocationCount": listdictdatatolist(datalitmt(recount_list, lenss), 'invocation_count'),
-        "avg_run_time": listdictdatatolist(datalitmt(reavg_list, lenss), 'avg_run_time'),
-        "five_seconds": listdictdatatolist(datalitmt(refive_secinds_list, lenss), 'five_seconds'),
-        "one_minute": listdictdatatolist(datalitmt(reone_min_list, lenss), 'one_minute'),
-        "five_minutes": listdictdatatolist(datalitmt(refive_min_list, lenss), 'five_minutes')
+        "avgruntime": listdictdatatolist(datalitmt(reavg_list, lenss), 'avg_run_time'),
+        "fiveseconds": listdictdatatolist(datalitmt(refive_secinds_list, lenss), 'five_seconds'),
+        "oneminute": listdictdatatolist(datalitmt(reone_min_list, lenss), 'one_minute'),
+        "fiveminutes": listdictdatatolist(datalitmt(refive_min_list, lenss), 'five_minutes')
     }
     return json.dumps(relict)
 
 
+
+
+
 # print(rejsondata())
+# reimg()

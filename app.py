@@ -10,6 +10,7 @@ from api import api_func_four_new_img
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_cors import CORS
 import json
+import base64
 import io
 import matplotlib.pyplot as plt
 from pylab import mpl
@@ -81,7 +82,17 @@ def RestconfApiDataFunctionThree():
 # 功能四代码,获取各种图片的json base64代码
 @app.route('/RestconfApiDataFunctionFourImgBase64', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionFourImgBase64():
-    return '0'
+    # return api_func_four_new_img.rebase64()
+    api_func_four_new_img.reimg_cup_time()
+    list = ['five_seconds', 'one_minute', 'five_minutes']
+    relistdata = []
+    for item in list:
+        with open("./api/img/{}.png".format(item), 'rb') as f:
+        # with open("./api/img/{}.png".format(item), 'rb') as f:
+            base64_data = base64.b64encode(f.read())
+            s = base64_data.decode()
+            relistdata.append(s)
+    return json.dumps(relistdata)
 
 
 # 功能四获取直接的json数据格式

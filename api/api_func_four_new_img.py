@@ -1,18 +1,17 @@
 import base64
-
+import json
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 import numpy as np
 from pywaffle import Waffle
-
 from api import api_func_four
 
 """
     参考代码https://blog.csdn.net/qq_30614345/article/details/99053555?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param
 """
 
-fdata = [{'one_minute': 0.52, 'id': 308, 'name': 'HTTP CORE'}, {'one_minute': 0.08, 'id': 9, 'name': 'Check heaps'}, {'one_minute': 0.04, 'id': 208, 'name': 'IP ARP Retry Ager'}, {'one_minute': 0.03, 'id': 196, 'name': 'VRRS Main thread'}, {'one_minute': 0.03, 'id': 205, 'name': 'IPAM Manager'}, {'one_minute': 0.02, 'id': 143, 'name': 'SASRcvWQWrk2'}, {'one_minute': 0.02, 'id': 212, 'name': 'SEP_webui_wsma_http'}, {'one_minute': 0.02, 'id': 457, 'name': 'TPS IPC Process'}, {'one_minute': 0.01, 'id': 124, 'name': 'IOSXE-RP Punt Service Process'}, {'one_minute': 0.01, 'id': 145, 'name': 'Per-minute Jobs'}, {'one_minute': 0.01, 'id': 232, 'name': 'Tunnel BGP'}, {'one_minute': 0.01, 'id': 435, 'name': 'MMA DB TIMER'}, {'one_minute': 0.01, 'id': 445, 'name': 'LOCAL AAA'}]
+# fdata = [{'one_minute': 0.52, 'id': 308, 'name': 'HTTP CORE'}, {'one_minute': 0.08, 'id': 9, 'name': 'Check heaps'}, {'one_minute': 0.04, 'id': 208, 'name': 'IP ARP Retry Ager'}, {'one_minute': 0.03, 'id': 196, 'name': 'VRRS Main thread'}, {'one_minute': 0.03, 'id': 205, 'name': 'IPAM Manager'}, {'one_minute': 0.02, 'id': 143, 'name': 'SASRcvWQWrk2'}, {'one_minute': 0.02, 'id': 212, 'name': 'SEP_webui_wsma_http'}, {'one_minute': 0.02, 'id': 457, 'name': 'TPS IPC Process'}, {'one_minute': 0.01, 'id': 124, 'name': 'IOSXE-RP Punt Service Process'}, {'one_minute': 0.01, 'id': 145, 'name': 'Per-minute Jobs'}, {'one_minute': 0.01, 'id': 232, 'name': 'Tunnel BGP'}, {'one_minute': 0.01, 'id': 435, 'name': 'MMA DB TIMER'}, {'one_minute': 0.01, 'id': 445, 'name': 'LOCAL AAA'}]
 # for i in fdata:
 #     print(i)
 
@@ -43,8 +42,8 @@ class newimg:
         #     lables_list.append(str)
         plt.figure(
             FigureClass=Waffle,
-            rows=12,
-            # columns=10,
+            rows=8,
+            columns=12,
             values=self.new_dict,
             # 设置图例的位置
             legend={
@@ -54,21 +53,49 @@ class newimg:
                 'framealpha': 0,
                 'fontsize': 12
             },
-            dpi=100,
+            figsize=(12, 8),
+            dpi=150,
             labels = ['{} {:.1f}%'.format(k, (v/total*100)) for k, v in self.new_dict.items()],
             title={
-                'label': "CPU Occupy",
+                'label': self.key,
                 'loc': 'left',
                 'fontdict': {
-                    'fontsize': 16,
+                    'fontsize': 30,
                 }
             }
         )
         plt.savefig("./img/{}".format(self.imgname))
-        plt.show()
+        # plt.show()
 
 
-# ad = newimg(fdata, 'one_minute', 'one_minute')
-# # print(ad.Pie())
-# # ad.Lines()
+# ad = newimg(fdata, 'one_minute', 'one_minute4')
+# print(ad.Pie())
+# ad.Lines()
 # ad.Waffle()
+def reimg_cup_time():
+    # 三个cup占比的时间
+    Ldata = api_func_four.getdata()
+    new_list = [Ldata[2], Ldata[3], Ldata[4]]
+    list = ['five_seconds', 'one_minute', 'five_minutes']
+    i = 0
+    while i <= 2:
+        ad = newimg(new_list[i], list[i], list[i])
+        ad.Waffle()
+        print('成功生成', list[i])
+        i += 1
+
+
+def rebase64():
+    reimg_cup_time()
+    list = ['five_seconds', 'one_minute', 'five_minutes']
+    relistdata = []
+    for item in list:
+        with open("./img/{}.png".format(item), 'rb') as f:
+        # with open("./api/img/{}.png".format(item), 'rb') as f:
+            base64_data = base64.b64encode(f.read())
+            s = base64_data.decode()
+            relistdata.append(s)
+    return json.dumps(relistdata)
+
+
+# print(rebase64())
