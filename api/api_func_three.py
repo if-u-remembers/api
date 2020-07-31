@@ -7,13 +7,13 @@ import json
 
 
 def GetDdosData_new():
-    api = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
-    # api = 'https://li-say.top:6002/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
+    # api = 'https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
+    api = 'https://li-say.top:6002/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/'
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
                }
-    basicauth = ("developer", "C1sco12345")
-    # basicauth = ("cisco", "cisco123!")
+    # basicauth = ("developer", "C1sco12345")
+    basicauth = ("cisco", "cisco123!")
 
     try:
         datas = api_func_one_get.get_new_api_ones(api, headers, basicauth)

@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="修改api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api_func_t.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_func_t.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/api_func_three.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api_func_three.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/three_mysql_and_func_def.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/three_mysql_and_func_def.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +253,7 @@
       <workItem from="1596024327229" duration="3654000" />
       <workItem from="1596083098579" duration="18810000" />
       <workItem from="1596115337985" duration="28255000" />
-      <workItem from="1596191067966" duration="1332000" />
+      <workItem from="1596191067966" duration="1502000" />
     </task>
     <task id="LOCAL-00001" summary="修改api">
       <created>1595412735954</created>
