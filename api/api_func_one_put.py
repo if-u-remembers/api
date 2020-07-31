@@ -58,6 +58,6 @@ def put_api_ones(newjson):
     yangConfig['ietf-interfaces:interface']['ietf-ip:ipv4'] = chil
     # return yangConfig
     requests.packages.urllib3.disable_warnings()
-    api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
-    # api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
+    # api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
+    api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
     return api_put.put_api(api_url, yangConfig)

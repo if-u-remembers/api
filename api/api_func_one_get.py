@@ -9,13 +9,13 @@ def get_api_one():
     :return: 返回参数 为一个json 数据或者返回
     """
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/"
-    # api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
+    # api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/"
+    api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
     }
-    basicauth = ("developer", "C1sco12345")
-    # basicauth = ("cisco", "cisco123!")
+    # basicauth = ("developer", "C1sco12345")
+    basicauth = ("cisco", "cisco123!")
     try:
         resp = requests.get(api_url, auth=basicauth, headers=headers, verify=False)
         response_json = json.dumps(resp.json(), indent=2)

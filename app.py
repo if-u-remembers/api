@@ -73,11 +73,6 @@ def ModifyToDeleteModelInMysql():
 # 功能三
 @app.route('/RestconfApiDataFunctionThree', methods=['GET'])
 def RestconfApiDataFunctionThree():
-    res = api_func_three.intomysql()
-    res.headers['Access-Control-Allow-Origin'] = '*'
-    res.headers['Access-Control-Allow-Methods'] = 'GET'
-    res.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'
-    # api_func_three.intomysql()
     return api_func_three.intomysql()
 
 
