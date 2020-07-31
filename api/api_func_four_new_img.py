@@ -64,7 +64,7 @@ class newimg:
                 }
             }
         )
-        plt.savefig("./img/{}".format(self.imgname))
+        plt.savefig("./api/img/{}".format(self.imgname))
         # plt.show()
 
 
