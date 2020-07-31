@@ -128,8 +128,8 @@ def countimg():
     # 除上边框和右边框刻度
     plt.tick_params(top='off', right='off')
     # 图形展示
-    # plt.savefig("./api/img/count")
-    plt.savefig("./img/counts")
+    plt.savefig("./api/img/count")
+    # plt.savefig("./img/count")
     print('成功生成count')
 
 # countimg()
