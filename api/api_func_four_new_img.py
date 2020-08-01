@@ -128,11 +128,11 @@ def countimg():
         #     }
         # }
     )
-    plt.savefig("./img/count")
+    plt.savefig("./api/img/count")
     print('成功生成count')
 
 
-countimg()
+# countimg()
 
 
 def rebase64():
