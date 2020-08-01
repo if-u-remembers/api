@@ -1,17 +1,18 @@
 import json
 import requests
 from api import api_put
+import urllib3
 
 
 def put_api_one():
     requests.packages.urllib3.disable_warnings()
-    api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
-    # api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
+    # api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
+    api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
     headers = {"Accept": "application/yang-data+json",
                "Content-type": "application/yang-data+json"
                }
-    # basicauth = ("cisco", "cisco123!")
-    basicauth = ("developer", "C1sco12345")
+    basicauth = ("cisco", "cisco123!")
+    # basicauth = ("developer", "C1sco12345")
     yangConfig = {
         "ietf-interfaces:interface": {
             "name": "GigabitEthernet2",
@@ -58,6 +59,6 @@ def put_api_ones(newjson):
     yangConfig['ietf-interfaces:interface']['ietf-ip:ipv4'] = chil
     # return yangConfig
     requests.packages.urllib3.disable_warnings()
-    # api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1"
-    api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/'
+    # api_url = "https://ios-xe-mgmt-latest.cisco.com:9443/restconf/data/ietf-interfaces:interfaces/interface=" + dict['name']
+    api_url = 'https://li-say.top:6002/restconf/data/ietf-interfaces:interfaces/interface=' + dict['name']
     return api_put.put_api(api_url, yangConfig)

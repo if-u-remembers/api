@@ -211,17 +211,21 @@ def time_pkts(olddata_dist, newdata_dist, limit_time):
             pkts_to_time = (newdata_dist['pkts'] - olddata_dist['pkts'])/times
         # 换算为bps单位：Kbps
         kbps = pkts_to_time*10
-        if kbps < 5*1048576:
+        # if kbps < 5*1048576:
+        if kbps < 3500:
             error = '正常'
             order = 0
             # 若大于5G/s ，小于10G/s ...以此类推
-        elif 5*1048576 <= kbps < 10*1048576:
+        # elif 5*1048576 <= kbps < 10*1048576:
+        elif 3500 <= kbps < 4500:
             error = '警告!'
             order = 1
-        elif 10*1048576 <= kbps < 30*1048576:
+        # elif 10*1048576 <= kbps < 30*1048576:
+        elif 4500 <= kbps < 6000:
             error = '危险级别！已配置接口模板'
             order = 2
-        elif 30*1048576 <= kbps:
+        # elif 30*1048576 <= kbps:
+        elif 6000 <= kbps:
             error = '高危级别！已关闭接口'
             order = 3
     else:

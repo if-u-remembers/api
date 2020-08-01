@@ -87,65 +87,65 @@ def datatof():
     order = data[19:lens]
     order_num = 0
     new_dict = {}
-    for item in order:
-        order_num += item['invocation_count']
-    new_dict['order'] = order_num
     for item in data[0:19]:
         new_dict[item['name']] = item['invocation_count']
-
+    for item in order:
+        order_num += item['invocation_count']
+    new_dict['Other CPU processes'] = order_num
     return new_dict
 
 
 def countimg():
     datas = datatof()
+    total = sum(datas.values())
     # 中文及负号处理办法
     plt.rcParams['font.sans-serif'] = 'Microsoft YaHei'
     plt.rcParams['axes.unicode_minus'] = False
-
     # 数据创建
-    keys = list(datas.keys())
+    # keys = list(datas.keys())
     values = list(datas.values())
-    # 绘图details
-    colors = ['steelblue', '#9999ff', 'red', 'indianred', 'deepskyblue', 'lime', 'magenta', 'violet', 'peru', 'green',
-              'yellow', 'orange', 'tomato', 'lawngreen', 'cyan', 'darkcyan', 'dodgerblue', 'teal', 'tan', 'royalblue']
-    plt.figure(figsize=(22.5, 12))
-    plot = squarify.plot(
-                         norm_x=100,
-                         norm_y=100,
-                         sizes=values,  # 指定绘图数据
-                         label=keys,  # 指定标签
-                         color=colors,  # 指定自定义颜色
-                         alpha=1,  # 指定透明度
-                         value=values,  # 添加数值标签
-                         edgecolor='white',  # 设置边界框为白色
-                         linewidth=10  # 设置边框宽度为3
-                         )
-
-    # 设置标签大小为10
-    # plt.rc('font', size=10)
-    # 除坐标轴
-    plt.axis('off')
-    # 除上边框和右边框刻度
-    plt.tick_params(top='off', right='off')
-    # 图形展示
-    plt.savefig("./api/img/count")
-    # plt.savefig("./img/count")
+    plt.figure(
+        FigureClass=Waffle,
+        rows=10,
+        columns=13,
+        values=values,
+        # 设置图例的位置
+        legend={
+            'loc': 'upper left',
+            'bbox_to_anchor': (1, 1),
+            # 'ncol': len(self.new_list),
+            'framealpha': 0,
+            'fontsize': 17
+        },
+        figsize=(15, 8),
+        dpi=150,
+        labels=['{:.1f}% {} {}'.format((v / total*100), ' ', k) for k, v in datas.items()]
+        # title={
+        #     'label': self.imgname,
+        #     'loc': 'left',
+        #     'fontdict': {
+        #         'fontsize': 30,
+        #     }
+        # }
+    )
+    plt.savefig("./img/count")
     print('成功生成count')
 
-# countimg()
+
+countimg()
 
 
 def rebase64():
     countimg()
     reimg_cup_time()
     list1 = ['five_seconds', 'one_minute', 'five_minutes']
-    namelist1 = ['Cup ratio in five seconds', 'Proportion of cup per minute', 'Proportion of cup in five minutes']
+    namelist1 = ['CPU ratio in five seconds', 'Proportion of CPU per minute', 'Proportion of CPU in five minutes']
     relistdata = []
     i = 0
     with open("./api/img/count.png", 'rb') as c:
         base64_data = base64.b64encode(c.read())
         cs = base64_data.decode()
-        dictss = {"title": 'All thread runs', "base64": cs}
+        dictss = {"title": 'Utilization rate of all CPU threads', "base64": cs}
         relistdata.append(dictss)
     for item in list1:
         with open("./api/img/{}.png".format(item), 'rb') as f:
