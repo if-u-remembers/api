@@ -154,5 +154,6 @@ def rebase64():
             s = base64_data.decode()
             dict = {"title": namelist1[i], "base64": s}
             relistdata.append(dict)
+            i += 1
     return relistdata
 
