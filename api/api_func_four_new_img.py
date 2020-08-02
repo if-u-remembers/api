@@ -12,10 +12,6 @@ from api import api_func_four
     参考代码https://blog.csdn.net/qq_30614345/article/details/99053555?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-5.channel_param
 """
 
-# fdata = [{'one_minute': 0.52, 'id': 308, 'name': 'HTTP CORE'}, {'one_minute': 0.08, 'id': 9, 'name': 'Check heaps'}, {'one_minute': 0.04, 'id': 208, 'name': 'IP ARP Retry Ager'}, {'one_minute': 0.03, 'id': 196, 'name': 'VRRS Main thread'}, {'one_minute': 0.03, 'id': 205, 'name': 'IPAM Manager'}, {'one_minute': 0.02, 'id': 143, 'name': 'SASRcvWQWrk2'}, {'one_minute': 0.02, 'id': 212, 'name': 'SEP_webui_wsma_http'}, {'one_minute': 0.02, 'id': 457, 'name': 'TPS IPC Process'}, {'one_minute': 0.01, 'id': 124, 'name': 'IOSXE-RP Punt Service Process'}, {'one_minute': 0.01, 'id': 145, 'name': 'Per-minute Jobs'}, {'one_minute': 0.01, 'id': 232, 'name': 'Tunnel BGP'}, {'one_minute': 0.01, 'id': 435, 'name': 'MMA DB TIMER'}, {'one_minute': 0.01, 'id': 445, 'name': 'LOCAL AAA'}]
-# for i in fdata:
-#     print(i)
-
 
 class newimg:
     def __init__(self, list_data, key, imgname):
