@@ -270,19 +270,6 @@ def risk_assessment(lists):
     return relist
 
 
-# list = [
-#         {'id': 1, 'order': 0, 'rate': 23.21, 'name': 'GigabitEthernet1'},
-#         {'id': 0, 'order': 1, 'rate': 0, 'name': 'Control Plane'},
-#         {'id': 1, 'order': 2, 'rate': 23.21, 'name': 'GigabitEthernet2'},
-#         {'id': 0, 'order': 3, 'rate': 0, 'name': 'Control Plane0'}
-# ]
-# for i in risk_assessment(list)[1]:
-#     print(i)
-# old = {"time": '2020-07-28 23:30:04', "pkts": 6}
-# new = {"time": '2020-07-28 23:31:03', "pkts": 481554, "id": 5}
-# print(time_pkts(old, new, 6000))
-
-
 def intoModelMysql(val):
     """
     插入数据行
@@ -340,7 +327,3 @@ def selectData():
     conn.close()
     # 返回一个数据库所有数据的元组
     return res
-
-
-# for item in selectData():
-#     print(item)

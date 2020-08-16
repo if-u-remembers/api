@@ -26,16 +26,13 @@ def GetDdosData_new():
         # 空数组收集所有被检查到的设备数据的信息
         intlist = []
         for item in list:
-            children = {}
             # 循环每个设备
             acl = item['input-security-acl']
             # if acl == '101' and item['v4-protocol-stats']['in-pkts'] != '':
             if item['v4-protocol-stats']['in-pkts'] != '':
                 # 获得新的数据
-                children['id'], children['name'], children['pkts'], children['time'], children['acl'] = int(
-                    item['if-index']), item['name'], int(item['v4-protocol-stats']['in-pkts']), listtime, item[
-                                                                                                            'input-security-acl']
-                # 获取旧数据，若数据为空，则建立使得数据变成新的
+                children = {'id': int(item['if-index']), 'name': item['name'], 'pkts': int(item['v4-protocol-stats']['in-pkts']), 'time': listtime, 'acl': item['input-security-acl']}
+                # 获取旧数据，若数据为空，则建立使得数据变成新的,通过设备的id查询
                 olddata = three_mysql_and_func_def.select_ddos_one(item['if-index'])
                 # 把新的数据载入数据库
                 three_mysql_and_func_def.Add_ddos(children)
@@ -47,11 +44,11 @@ def GetDdosData_new():
                     print('一分钟前的数据为:', olddata_time, olddata_pkts)
                 olddata_dist = {"time": olddata_time, "pkts": int(olddata_pkts)}
                 # 把和旧 新时间载入得到当前设备的数据报告
-                limit_time = 6000000
+                limit_time = 6000000000
                 # 生成一个字典
                 intlist.append(three_mysql_and_func_def.time_pkts(olddata_dist, children, limit_time))
             else:
-                pass
+                children = {}
         # 获得grade参数和 new参数
         grade_news_list = three_mysql_and_func_def.risk_assessment(intlist)
         grade = grade_news_list[0]
@@ -61,11 +58,15 @@ def GetDdosData_new():
         three_mysql_and_func_def.intoModelMysql(val)
         return mysql_data
     except:
+        print(111)
         listtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         mysql_data = {"grade": 0, "news": 'null', "intoerror": 'null', "time": listtime}
         val = ((mysql_data['grade'], mysql_data['news'], mysql_data['intoerror'], mysql_data['time']),)
         three_mysql_and_func_def.intoModelMysql(val)
         return mysql_data
+
+
+# print(GetDdosData_new())
 
 
 def intomysql():

@@ -1,5 +1,6 @@
 import pymysql
 import json
+
 '''
     这个文件是为了对数据库进行协调操作的父类
 '''
@@ -9,6 +10,7 @@ class inmysql:
     '''
         这个类是为了便捷得对数据进行增删改查，同时尾端部分载入一些功能一、二、三等功能模块
     '''
+
     def __init__(self, host, user, password, database):
         self.host = host
         self.user = user
@@ -63,7 +65,7 @@ class inmysql:
                 print('数据库无数据')
             cur.close()
             conn.close()
-        # 返回一个数据库所有数据为id的元组
+            # 返回一个数据库所有数据为id的元组
             return res
         except:
             return '400'
@@ -90,7 +92,7 @@ class inmysql:
             conn.rollback()
             return '400'
 
-    def fun2_updata(self, id, name , model, url, remark , introduce, logo):
+    def fun2_updata(self, id, name, model, url, remark, introduce, logo):
         conn = self.__conn()
         cur = conn.cursor()
         sql = "UPDATE model_data set `name`='{}',`model`={} ,`url`={},`remarks`='{}',`introduce`='{}', `del` = {}, `logo`={} where `id` = {};".format(
@@ -106,7 +108,7 @@ class inmysql:
         else:
             return '400'
 
-    def fun2_add(self, name , model, url, remark , introduce, logo):
+    def fun2_add(self, name, model, url, remark, introduce, logo):
         conn = self.__conn()
         cur = conn.cursor()
         val = ((name, model, url, remark, introduce, '0', logo),)
@@ -126,6 +128,7 @@ class intomysql:
     '''
         这个类是为了便捷的重置信息,进行数据的重置与更新,依据默认的预设好的表
     '''
+
     def __init__(self, host, user, password, database):
         sql_model = '''create table model_data(id int(8) not null auto_increment, name varchar(25) null,model varchar(2000) null,url varchar(1000) null,del varchar(2) null,remarks varchar(500) null,introduce varchar(1000) null,logo int(8) null,PRIMARY KEY(id));'''
         sql_ddos_journal = 'create table ddos_journal(id int(8) not null auto_increment,times varchar(150),grade int(8),news varchar(10000) null,intoerror varchar(10000) null,PRIMARY KEY(id))character set utf8;'
@@ -211,7 +214,7 @@ class intomysql:
             conn.close()
             return '400'
 
-    def add_data(self, val, table: str, tablenames: dict):
+    def add_data(self, val, table: str, tablenames: list):
         '''
             通过
         :param val: 输入一个数据元组
@@ -224,22 +227,21 @@ class intomysql:
         tname, vs = '', ''
         for item in tablenames:
             add = item + ','
-            vs += '%s'
+            vs += '%s,'
             tname += add
-            print(vs)
         tname, vs = tname[:-1], vs[:-1]
-        sql = 'insert into' + table + '(' + tname + ')values(' + vs + ');'
+        sql = 'insert into ' + table + '(' + tname + ')values(' + vs + ');'
         try:
             cur.executemany(sql, val)
             conn.commit()
-            print('id', table, '载入数据成功！')
-            print('\n-------------------------')
+            print(table, '载入数据成功！')
+            print('-------------------------')
             cur.close()
             conn.close()
             return '200'
         except:
-            print('id', table, '载入数据失败！')
-            print('\n-------------------------')
+            print(table, '载入数据失败！')
+            print('-------------------------')
             conn.rollback()
             cur.close()
             conn.close()

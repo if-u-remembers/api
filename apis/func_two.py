@@ -1,5 +1,6 @@
 import json
 from apis import mysql, reApi
+import intomysql
 
 
 class ApifuncTwoMysql:
@@ -125,3 +126,5 @@ class ApifuncTwoMysql:
         elif name == 'select':
             # 这里返回多组数据,且保留id及空的情况
             return self.__select(data)
+        elif name == 'reset':
+            return intomysql.remodeldata()

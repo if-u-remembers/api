@@ -18,11 +18,11 @@ def acl(name):
         'int Loopback1',
         'ip access-group 101 in'
     ]
-    config_commands[0] = 'int '+ name
+    config_commands[0] = 'int ' + name
     print("Sending the config commands.")
     output = sshCli.send_config_set(config_commands)
-    return output
     print("Config output from the device:\n{}\n".format(output))
+    return output
 
 
 def down(name):

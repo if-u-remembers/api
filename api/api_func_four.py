@@ -68,7 +68,7 @@ def getdata():
         return recount_list, reavg_list, refive_secinds_list, reone_min_list, refive_min_list
 
 
-# print(getdata())
+print(getdata())
 
 
 def datalitmt(lists, lenss):

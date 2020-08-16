@@ -40,3 +40,6 @@ class reapis:
             return error
         else:
             return json.loads(res)
+
+    def getapis(self):
+        return self.__getapi()
