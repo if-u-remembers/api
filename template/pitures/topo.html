@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>topo</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div style="height: 500px;" id="canvas"/>
+<!--http://demo.qunee.com/editor/data/cisco/multilayerSwitch.png-->
+<!-- Q.Graphs.server-->
+<script src="http://demo.qunee.com/lib/qunee-min.js"></script>
+<script>
+    var graph = new Q.Graph('canvas');
+
+    var DNAC = graph.createNode("DNA-C", 100, -50);
+    DNAC.image = "E:\\vue\\flask\\template\\pitures\\DNA-C.png";
+    DNAC.tooltip = "Name: DNA-Center Controller<br>IpAddress: 10.10.20.85"
+
+
+    var C3850_A = graph.createNode("C3850_A", 100, 160);
+    C3850_A.image = "C3850_A.png";
+    C3850_A.tooltip = "Type: Cisco Catalyst38xx stack-able ethernet switch<br>hostname: spine1.abc.inc<br>macAddress: 70:01:b5:5d:1b:00<br>IpAddress: 10.10.20.80"
+    var edge = graph.createEdge("DNAC-->C3850_A", DNAC, C3850_A);
+
+    var C9300_24UX_1 = graph.createNode("C9300-24UX-1", -125, 280);
+    C9300_24UX_1.image = "C9300-24UX.png";
+    C9300_24UX_1.tooltip = "Type: Cisco Catalyst 9300 Switch<br>hostname: jk<br>macAddress: 00:72:78:54:d1:00<br>IpAddress: 10.10.20.81"
+    var edge = graph.createEdge("C9300-24UX-1<--C3850_A", C3850_A, C9300_24UX_1);
+
+    var C9300_24UX_2 = graph.createNode("C9300-24UX-2", 350, 280);
+    C9300_24UX_2.image = "C9300-24UX.png";
+    C9300_24UX_2.tooltip = "Type: Cisco Catalyst 9300 Switch<br>hostname: leaf2.abc.inc<br>macAddress: 50:61:bf:ec:07:80<br>IpAddress: 10.10.20.82"
+    var edge = graph.createEdge("C3850_A-->C9300-24UX-2", C3850_A, C9300_24UX_2);
+
+    var Wireless_LAN_Controller = graph.createNode("Wireless_LAN_Controller", -415, 390);
+    Wireless_LAN_Controller.image = "Wireless_LAN_Controller.png";
+    Wireless_LAN_Controller.tooltip = "Type: Cisco 3504 Wireless LAN Controller<br>hostname: 3504_WLC<br>macAddress: 50:61:bf:57:2f:00<br>IpAddress: 10.10.20.51"
+    var edge = graph.createEdge("Wireless_LAN_Con<--C9300_24UX_1", C9300_24UX_1, Wireless_LAN_Controller);
+
+    var Host_1 = graph.createNode("Host_1", 250, 390);
+    Host_1.image = "C9300-24UX.png";
+    Host_1.tooltip = "Type: Cisco 1140 Unified Access Point<br>hostname: T1-1<br>macAddress: 00:2b:01:00:02:00<br>IpAddress: 10.10.20.241"
+    var edge = graph.createEdge("C9300_24UX_1-->Host_1", C9300_24UX_1, Host_1);
+
+    var Host_2 = graph.createNode("Host_2", 600, 380);
+    Host_2.image = "C9300-24UX.png";
+    Host_2.tooltip = "Type: Cisco 1140 Unified Access Point<br>hostname: T1-2<br>macAddress: 00:2b:01:00:03:00<br>IpAddress: 10.10.20.242"
+    var edge = graph.createEdge("C9300-24UX-2-->Host_2", C9300_24UX_2, Host_2);
+
+    edge.setStyle(Q.Styles.LABEL_OFFSET_Y, -10);
+    edge.setStyle(Q.Styles.LABEL_POSITION, Q.Position.CENTER_TOP);
+    edge.setStyle(Q.Styles.LABEL_ANCHOR_POSITION, Q.Position.CENTER_BOTTOM);
+    edge.setStyle(Q.Styles.LABEL_BORDER, 1);
+    edge.setStyle(Q.Styles.LABEL_POINTER, true);
+    edge.setStyle(Q.Styles.LABEL_PADDING, new Q.Insets(2, 5));
+    edge.setStyle(Q.Styles.LABEL_BACKGROUND_GRADIENT,
+            Q.Gradient.LINEAR_GRADIENT_VERTICAL);
+</script>
+</body>
+</html>

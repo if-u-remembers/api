@@ -125,10 +125,6 @@ class inmysql:
 
 
 class intomysql:
-    '''
-        这个类是为了便捷的重置信息,进行数据的重置与更新,依据默认的预设好的表
-    '''
-
     def __init__(self, host, user, password, database):
         sql_model = '''create table model_data(id int(8) not null auto_increment, name varchar(25) null,model varchar(2000) null,url varchar(1000) null,del varchar(2) null,remarks varchar(500) null,introduce varchar(1000) null,logo int(8) null,PRIMARY KEY(id));'''
         sql_ddos_journal = 'create table ddos_journal(id int(8) not null auto_increment,times varchar(150),grade int(8),news varchar(10000) null,intoerror varchar(10000) null,PRIMARY KEY(id))character set utf8;'

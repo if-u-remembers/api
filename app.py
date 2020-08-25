@@ -4,6 +4,7 @@ from api import api_func_three
 from apis import func_one, func_two, func_four
 import os
 import json
+from apis import topo
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources=r'/*')  # 允许跨域请求
@@ -17,7 +18,7 @@ pwd = "cisco123!"
 # 思科设备数据
 # api_url = 'https://ios-xe-mgmt-latest.cisco.com:9443'
 # user = 'developer'
-# pwd = 'C1sco12345'
+# pwd = 'Cisco12345'
 
 # 数据库载入数据
 host = 'li-say.top'
@@ -64,11 +65,12 @@ def RestconfApiDataFunctionThree():
 
 
 root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "template")
+# root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "apis")
 
 
 @app.route('/htmls', methods=['POST', 'GET', 'PUT'])
 def home():
-    return send_from_directory(root, "topo.html")
+    return send_from_directory(root, "topo-net.html")
 
 
 # 功能四获取直接的json数据格式
@@ -82,6 +84,18 @@ def RestconfApiDataFunctionFour():
     elif request.method == 'POST' or 'PUT':
         lens = json.loads(request.data)
         return func_four.ApiFuncFour(url, user, pwd).rejsondata(lens)
+
+
+@app.route('/topos', methods=['POST', 'GET', 'PUT'])
+def topos():
+    roots = os.path.join(os.path.dirname(os.path.abspath(__file__)), "apis")
+    if request.method == 'GET':
+        return send_from_directory(roots, "topo.html")
+    elif request.method == 'POST' or 'PUT':
+        datasss = json.loads(request.data)
+        a = topo.TopoNewDataFiles(datasss)
+        a.creates()
+        return send_from_directory(roots, "topo.html")
 
 
 if __name__ == '__main__':

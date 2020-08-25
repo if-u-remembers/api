@@ -1,0 +1,32 @@
+<!DOCTYPE html>   
+<html>
+<head>
+    <title>topo</title>
+    <meta charset="utf-8">
+</head>
+<body><div style="height: 700px;" id="canvas"/><script src="http://demo.qunee.com/lib/qunee-min.js"></script>
+<script>
+        var graph = new Q.Graph('canvas');
+            var DNAC= graph.createNode("DNAC",100,-50);
+            DNAC.image = Q.Graphs.server;
+                DNAC.size = {width:30,height:-1};
+            DNAC.tooltip = "Name: DNA-Center Controller";
+            
+            
+            var C3850_A= graph.createNode("C3850_A",100,160);
+            C3850_A.image = "http://demo.qunee.com/editor/data/cisco/multilayerSwitch.png";
+                C3850_A.size = {width:50,height:-1};
+            C3850_A.tooltip = "Type: Cisco Catalyst38xx stack-able ethernet switch<br>hostname:spine1.abc.inc<br>ipaddress:10.10.20.85<br>macAddress:70:01:b5:5d:1b:00";
+            var edge = graph.createEdge("DNAC--->>C3850_A",DNAC,C3850_A);
+            
+    edge.setStyle(Q.Styles.LABEL_OFFSET_Y, -10);
+    edge.setStyle(Q.Styles.LABEL_POSITION, Q.Position.CENTER_TOP);
+    edge.setStyle(Q.Styles.LABEL_ANCHOR_POSITION, Q.Position.CENTER_BOTTOM);
+    edge.setStyle(Q.Styles.LABEL_BORDER, 1);
+    edge.setStyle(Q.Styles.LABEL_POINTER, true);
+    edge.setStyle(Q.Styles.LABEL_PADDING, new Q.Insets(2, 5));
+    edge.setStyle(Q.Styles.LABEL_BACKGROUND_GRADIENT,
+            Q.Gradient.LINEAR_GRADIENT_VERTICAL);
+</script>
+</body>
+</html>
