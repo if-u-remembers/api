@@ -126,15 +126,41 @@ class inmysql:
 
 class intomysql:
     def __init__(self, host, user, password, database):
-        sql_model = '''create table model_data(id int(8) not null auto_increment, name varchar(25) null,model varchar(2000) null,url varchar(1000) null,del varchar(2) null,remarks varchar(500) null,introduce varchar(1000) null,logo int(8) null,PRIMARY KEY(id));'''
-        sql_ddos_journal = 'create table ddos_journal(id int(8) not null auto_increment,times varchar(150),grade int(8),news varchar(10000) null,intoerror varchar(10000) null,PRIMARY KEY(id))character set utf8;'
-        sql_ddos_data = '''create table ddos_data(id int(8) not null auto_increment,mid varchar(10),times varchar(150),ddos varchar(40),name varchar(300),error varchar(1000) null,PRIMARY KEY(id))character set utf8;'''
+        sql_model = '''create table model_data(
+        id int(8) not null auto_increment, 
+        name varchar(25) null,
+        model varchar(2000) null,
+        url varchar(1000) null,
+        del varchar(2) null,
+        remarks varchar(500) null,
+        introduce varchar(1000) null,
+        logo int(8) null,PRIMARY KEY(id));'''
+        sql_ddos_journal = 'create table ddos_journal(id int(8) not null auto_increment,' \
+                           'times varchar(150),' \
+                           'grade int(8),' \
+                           'news varchar(10000) null,' \
+                           'intoerror varchar(10000) null,PRIMARY KEY(id))character set utf8;'
+        sql_ddos_data = '''create table ddos_data(
+        id int(8) not null auto_increment,
+        mid varchar(10),
+        times varchar(150),
+        ddos varchar(40),
+        name varchar(300),
+        error varchar(1000) null,PRIMARY KEY(id))character set utf8;'''
+        sql_cisco_model_data = '''create table cisco_model_data(
+id int(8) not null auto_increment,
+model varchar(4000),
+name varchar(100),
+logo int(8),
+introduce varchar(1000),
+remarks varchar(500),
+PRIMARY KEY(id))character set utf8;'''
         self.host = host
         self.user = user
         self.password = password
         self.database = database
-        self.data = [sql_model, sql_ddos_journal, sql_ddos_data]
-        self.name = ['model_data', 'ddos_journal', 'ddos_data']
+        self.data = [sql_model, sql_ddos_journal, sql_ddos_data, sql_cisco_model_data]
+        self.name = ['model_data', 'ddos_journal', 'ddos_data', 'cisco_model_data']
 
     def __conn(self):
         try:

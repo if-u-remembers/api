@@ -57,7 +57,7 @@ class TopoNewDataFiles:
 </body>
 </html>'''
         self.data = data['data']
-        self.height = data['height']
+        self.height = data['auto']
 
     def __dataremore(self):
         bodydata = ''''''

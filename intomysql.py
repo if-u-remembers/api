@@ -29,6 +29,14 @@ val = (
         'https://li-say.top:6002/restconf/data/Cisco-IOS-XE-native:native/ip/nat', '0',
         '创建NAT模板', '可配置nat地址池，实现公网和私网的转换等', 4)
 )
+
+new_val = (
+    ('''interface loopback 112
+ip address 1.1.1.1 255.255.255.0
+no shut''', "创建环回口", 2, '这里是创建环回口的介绍', '其他评价之类的，或者使用方法（填坑用的)'),
+)
+
+
 host = 'li-say.top'
 mysqluser = 'root'
 password = '981002'
@@ -38,33 +46,49 @@ sql = mysql.intomysql(host, mysqluser, password, database)
 sql.printtable()
 
 
-def intonew():
-    nums = int(input('输入需要重置的数据表:（输入-1退出重置）\n'))
+def intonew(numss):
+    if numss:
+        nums = numss
+    else:
+        nums = int(input('输入需要重置的数据表:（输入-1退出重置）\n'))
     if nums == -1:
         print('退出重置')
     else:
-        sql.deltable(nums)
+        try:
+            sql.deltable(nums)
+        except:
+            pass
         sql.createtable(nums)
 
 
-def intoModel_data(val):
+def intoModel_data(vals):
     a = input("确认是否载入模板？（输入yes/no）")
     if a == 'yes':
         tablename = ['name', 'model', 'url', 'del', 'remarks', 'introduce', 'logo']
-        sql.add_data(val, 'model_data', tablename)
+        sql.add_data(vals, 'model_data', tablename)
         print('载入模板')
     else:
         print('取消载入')
 
 
-def remodeldata():
-    tablename = ['name', 'model', 'url', 'del', 'remarks', 'introduce', 'logo']
-    return sql.add_data(val, 'model_data', tablename)
+def intoNewModel_data(vals, ass):
+    if ass == 'yes':
+        a = ass
+    else:
+        a = input("确认是否载入模板？（输入yes/no）")
+    if a == 'yes':
+        tablename = ['model', 'name', 'logo', 'introduce', 'remarks']
+        sql.add_data(vals, 'cisco_model_data', tablename)
+        print('载入模板')
+    else:
+        print('取消载入')
 
 
-# intonew()
+# 重置数据表
+intonew(3)
+# 插入模板数据，插入数据列（旧的功能二模板数据库）
 # intoModel_data(val)
-
+intoNewModel_data(new_val, 'yes')
 
 
 

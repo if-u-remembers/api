@@ -32,6 +32,23 @@ class reapis:
         response_json = json.dumps(resp.json(), indent=4)
         return response_json
 
+    def requestapi(self, headers, body):
+        '''request方法'''
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        resp = requests.request("POST", self.url, headers = headers, json=body)
+        return resp
+
+    def getapi(self, headers):
+        '''get方法'''
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        resp = requests.request("GET", self.url, headers=headers)
+        return resp
+
+    def postapi(self, headers):
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        resp = requests.request("POST", self.url, headers=headers)
+        return resp
+
     def getapi_to_func_one(self):
         res = self.__getapi()
         dic = json.loads(res)
@@ -42,4 +59,5 @@ class reapis:
             return json.loads(res)
 
     def getapis(self):
+        '''调用接口'''
         return self.__getapi()

@@ -27,26 +27,27 @@ class ApifuncTwoMysql:
                 list_data.append(children_dict)
         return list_data
 
-    def redata(self):
-        # 返回用户可见的数据
-        data = self.__getdata()
-        list_data = []
-        for item in data:
-            children_dicts = {'id': item['id'], 'modelname': item['modelname'], 'remakes': item['remakes'],
-                             'introduce': item['introduce'], 'logo': item['logo']}
-            list_data.append(children_dicts)
-        return json.dumps(list_data)
+    # def redata(self):
+    #     # 返回用户可见的数据
+    #     datsa = self.__getdata()
+    #     list_data = []
+    #     for item in datsa:
+    #         children_dicts = {'id': item['id'], 'modelname': item['modelname'], 'remakes': item['remakes'],
+    #                           'introduce': item['introduce'], 'logo': item['logo']}
+    #         list_data.append(children_dicts)
+    #     return json.dumps(list_data)
 
-    def redata_id(self, ids):
-        # ids是一个数字格式的数据
-        global children_dictss
-        data = self.mysql.select_for_id('model_data', 'id', ids)
-        for item in data:
-            id, modelname, model, url, dels, remarks, introduce, logo = item[0], item[1], item[2], item[3], item[4], item[5], item[6], item[7]
-            children_dictss = {'id': id, 'modelname': modelname, 'remakes': remarks, 'introduce': introduce,
-                             'model': model, 'url': url, 'logo': logo, 'dels': dels}
-            # 返回字典格式数据
-        return children_dictss
+    # def redata_id(self, ids):
+    #     # ids是一个数字格式的数据
+    #     global children_dictss
+    #     data = self.mysql.select_for_id('model_data', 'id', ids)
+    #     for item in data:
+    #         id, modelname, model, url, dels, remarks, introduce, logo = item[0], item[1], item[2], item[3], item[4], \
+    #                                                                     item[5], item[6], item[7]
+    #         children_dictss = {'id': id, 'modelname': modelname, 'remakes': remarks, 'introduce': introduce,
+    #                            'model': model, 'url': url, 'logo': logo, 'dels': dels}
+    #         # 返回字典格式数据
+    #     return children_dictss
 
     def batch_distribution(self, dicts):
         """
@@ -77,54 +78,55 @@ class ApifuncTwoMysql:
                 re_list.append(children_dict)
         return json.dumps(re_list)
 
-    # 删改查部分:
-    def __select(self, data):
-        try:
-            select = json.loads(data)['id']
-            if type(select) == type(1):
-                return json.dumps(self.redata_id(select))
-            else:
-                selist = []
-                for item in select:
-                    selist.append(self.redata_id(item))
-                return json.dumps(selist)
-        except:
-            # 异常返回一个空数据
-            print('error')
-            return json.dumps([])
-
-    def __updata(self, data):
-        # 返回数据为： 200， 400
-        dicts = json.loads(data)
-        id, modelname, remarks, introduce, url, model, logo = dicts['id'], dicts['modelname'], dicts['remarks'], dicts[
-            'introduce'], dicts['url'], dicts['model'], dicts['logo']
-        return self.mysql.fun2_updata(id, modelname, model, url, remarks, introduce, logo)
-
-    def __adds(self, data):
-        # 返回数据为： 200， 400
-        dicts = json.loads(data)
-        modelname, remarks, introduce, url, model, logo = dicts['modelname'], dicts['remarks'], dicts['introduce'], dicts['url'], dicts['model'], dicts['logo']
-        return self.mysql.fun2_add(modelname, model, url, remarks, introduce, logo)
-
-    def __dels(self, data):
-        # 返回数据为一个id，error字段的字典嵌套数组
-        dist = json.loads(data)['id']
-        relist = []
-        for item in dist:
-            error = self.mysql.dels('model_data', 'id', item)
-            newdist = {'id': item, 'error': error}
-            relist.append(newdist)
-        return json.dumps(relist)
-
-    def mysqls(self, name, data):
-        if name == 'del':
-            return self.__dels(data)
-        elif name == 'modify':
-            return self.__updata(data)
-        elif name == 'add':
-            return self.__adds(data)
-        elif name == 'select':
-            # 这里返回多组数据,且保留id及空的情况
-            return self.__select(data)
-        elif name == 'reset':
-            return intomysql.remodeldata()
+    # # 删改查部分:
+    # def __select(self, data):
+    #     try:
+    #         select = json.loads(data)['id']
+    #         if type(select) == type(1):
+    #             return json.dumps(self.redata_id(select))
+    #         else:
+    #             selist = []
+    #             for item in select:
+    #                 selist.append(self.redata_id(item))
+    #             return json.dumps(selist)
+    #     except:
+    #         # 异常返回一个空数据
+    #         print('error')
+    #         return json.dumps([])
+    #
+    # def __updata(self, data):
+    #     # 返回数据为： 200， 400
+    #     dicts = json.loads(data)
+    #     id, modelname, remarks, introduce, url, model, logo = dicts['id'], dicts['modelname'], dicts['remarks'], dicts[
+    #         'introduce'], dicts['url'], dicts['model'], dicts['logo']
+    #     return self.mysql.fun2_updata(id, modelname, model, url, remarks, introduce, logo)
+    #
+    # def __adds(self, data):
+    #     # 返回数据为： 200， 400
+    #     dicts = json.loads(data)
+    #     modelname, remarks, introduce, url, model, logo = dicts['modelname'], dicts['remarks'], dicts['introduce'], \
+    #                                                       dicts['url'], dicts['model'], dicts['logo']
+    #     return self.mysql.fun2_add(modelname, model, url, remarks, introduce, logo)
+    #
+    # def __dels(self, data):
+    #     # 返回数据为一个id，error字段的字典嵌套数组
+    #     dist = json.loads(data)['id']
+    #     relist = []
+    #     for item in dist:
+    #         error = self.mysql.dels('model_data', 'id', item)
+    #         newdist = {'id': item, 'error': error}
+    #         relist.append(newdist)
+    #     return json.dumps(relist)
+    #
+    # def mysqls(self, name, data):
+    #     if name == 'del':
+    #         return self.__dels(data)
+    #     elif name == 'modify':
+    #         return self.__updata(data)
+    #     elif name == 'add':
+    #         return self.__adds(data)
+    #     elif name == 'select':
+    #         # 这里返回多组数据,且保留id及空的情况
+    #         return self.__select(data)
+    #     # elif name == 'reset':
+    #     #     return intomysql.remodeldata()
