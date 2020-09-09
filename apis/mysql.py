@@ -92,11 +92,11 @@ class inmysql:
             conn.rollback()
             return '400'
 
-    def fun2_updata(self, id, name, model, url, remark, introduce, logo):
+    def fun2_updata(self, tablename, mid, name, model, remark, introduce, logo):
         conn = self.__conn()
         cur = conn.cursor()
-        sql = "UPDATE model_data set `name`='{}',`model`={} ,`url`={},`remarks`='{}',`introduce`='{}', `del` = {}, `logo`={} where `id` = {};".format(
-            name, json.dumps(model), json.dumps(pymysql.escape_string(url)), remark, introduce, '0', logo, id)
+        sql = "UPDATE {} set `name`='{}',`model`='{}',`remarks`='{}',`introduce`='{}', `logo`={} where `id` = {};".format(tablename, name, model, remark, introduce, logo, mid)
+        print(sql)
         currr = cur.execute(sql)
         conn.commit()
         cur.close()
@@ -108,11 +108,12 @@ class inmysql:
         else:
             return '400'
 
-    def fun2_add(self, name, model, url, remark, introduce, logo):
+    def fun2_add(self, tablename, *data):
+
         conn = self.__conn()
         cur = conn.cursor()
-        val = ((name, model, url, remark, introduce, '0', logo),)
-        sql = "insert into model_data(`name`,`model`,`url`,`remarks`,`introduce`,`del`,`logo`)values(%s,%s,%s,%s,%s,%s,%s)"
+        val = ((data[0], data[1], data[2], data[3], data[4]),)
+        sql = "insert into {}(`model`, `name`, `logo`, `introduce`, `remarks`)values(%s,%s,%s,%s,%s)".format(tablename)
         try:
             cur.executemany(sql, val)
             conn.commit()

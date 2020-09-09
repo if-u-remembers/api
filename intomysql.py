@@ -31,9 +31,31 @@ val = (
 )
 
 new_val = (
-    ('''interface loopback 112
+    # 新的模板数据一共5个字段
+    # 第一个是命令，第二个名字，第三个logo标号，第四个介绍，第五个使用方法等
+    ("""interface loopback 112
 ip address 1.1.1.1 255.255.255.0
-no shut''', "创建环回口", 2, '这里是创建环回口的介绍', '其他评价之类的，或者使用方法（填坑用的)'),
+no shut""", "创建环回口", 1, "包括环回口的IP地址和掩码", " "),
+    ("""vlan 8""", "vlan", 1, "包括vlan的名称", " "),
+    ("""router isis
+net 49.0001.0001.0001.0001.00
+is-type level-1""", "ISIS", 1, "激活并设置ISIS并设置路由器类型", " "),
+    ("""router bgp www
+bgp 65001
+neighbor 192.168.1.1
+neighbor 192.168.1.1 timers 10 30 30
+neighbor $CSRTunnelIP2 remote-as $NeighborBgpASNOfCloudRouter2
+neighbor $CSRTunnelIP2 timers 10 30 30""", "BGP", 1 , "配置邻居路由器的AS号和IP", " "),
+    ("""access-list 1 deny ip 192.168.10.0 any any
+access-list 1 permit ip 10.10.20.0 any any""", "ACL", 1, "ACL名称、序列号，允许或拒绝哪个网段和策略IP等", " "),
+    ("""ospf 100
+network 10.10.20.0 0.0.0.255 area 1""", "OSPF", 1, "router-id和宣告相应的网段", " "),
+    ("""ip dhcp pool wlan
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.254
+dns-server 202.102.128.68 202.102.134.68
+ip dhcp excluded-address 192.168.10.200 192.168.10.254""",  "dhcp", 1, "排除的地址，租约的长短，DHCP服务器分配的网段和网关", " "),
+    ("""hostname AAA""", "修改设备名称", 1, "修改主机名", " ")
 )
 
 
@@ -59,6 +81,7 @@ def intonew(numss):
         except:
             pass
         sql.createtable(nums)
+        return '200'
 
 
 def intoModel_data(vals):
@@ -80,15 +103,17 @@ def intoNewModel_data(vals, ass):
         tablename = ['model', 'name', 'logo', 'introduce', 'remarks']
         sql.add_data(vals, 'cisco_model_data', tablename)
         print('载入模板')
+        return '200'
     else:
         print('取消载入')
+        return '400'
 
 
 # 重置数据表
-intonew(3)
-# 插入模板数据，插入数据列（旧的功能二模板数据库）
+# intonew(3)
+# # 插入模板数据，插入数据列（旧的功能二模板数据库）
 # intoModel_data(val)
-intoNewModel_data(new_val, 'yes')
+# intoNewModel_data(new_val, 'yes')
 
 
 

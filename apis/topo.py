@@ -1,34 +1,34 @@
 import os
 
-datas = {
-    "height":500,
-    "data":[
-        {
-            "name":"DNAC",
-            "coordinate-x":100,
-            "coordinate-y":-50,
-            "image":"Q.Graphs.server",
-            "size":{"width":30, "height":-1},
-            "type":"Name: DNA-Center Controller",
-            "ipaddress":None,
-            "hostname":None,
-            "macAddress":None,
-            "edge":None
-        },
-        {
-            "name":"C3850_A",
-            "coordinate-x":100,
-            "coordinate-y":160,
-            "image":"http://demo.qunee.com/editor/data/cisco/multilayerSwitch.Png",
-            "size":{"width":50, "height":-1},
-            "ipaddress":"10.10.20.85",
-            "hostname":"spine1.abc.inc",
-            "macAddress":"70:01:b5:5d:1b:00",
-            "type":"Type: Cisco Catalyst38xx stack-able ethernet switch",
-            "edge":{"start":"DNAC","end":"C3850_A"}
-        }
-    ]
-}
+# datas = {
+#     "height":500,
+#     "data":[
+#         {
+#             "name":"DNAC",
+#             "coordinate-x":100,
+#             "coordinate-y":-50,
+#             "image":"Q.Graphs.server",
+#             "size":{"width":30, "height":-1},
+#             "type":"Name: DNA-Center Controller",
+#             "ipaddress":None,
+#             "hostname":None,
+#             "macAddress":None,
+#             "edge":None
+#         },
+#         {
+#             "name":"C3850_A",
+#             "coordinate-x":100,
+#             "coordinate-y":160,
+#             "image":"http://demo.qunee.com/editor/data/cisco/multilayerSwitch.Png",
+#             "size":{"width":50, "height":-1},
+#             "ipaddress":"10.10.20.85",
+#             "hostname":"spine1.abc.inc",
+#             "macAddress":"70:01:b5:5d:1b:00",
+#             "type":"Type: Cisco Catalyst38xx stack-able ethernet switch",
+#             "edge":{"start":"DNAC","end":"C3850_A"}
+#         }
+#     ]
+# }
 
 
 class TopoNewDataFiles:
@@ -57,7 +57,8 @@ class TopoNewDataFiles:
 </body>
 </html>'''
         self.data = data['data']
-        self.height = data['auto']
+        # self.height = data['auto']
+        self.height = 700
 
     def __dataremore(self):
         bodydata = ''''''

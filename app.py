@@ -1,8 +1,8 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory
 from flask_cors import CORS
 from api import api_func_three
-from apis import func_one, func_two, func_four
-import os
+from apis import func_one, func_two, func_four, new_func_two_ck
+import os,intomysql
 import json
 from apis import topo
 
@@ -41,21 +41,63 @@ def RestconfApiData():
         return func_one.ApiFuncOne(url, user, pwd).putapis(datas)
 
 
+c_url_api = 'https://sandboxdnac2.cisco.com'
+functwo = new_func_two_ck.new_func_two(url=c_url_api, user='admin', pwd='Cisco1234!', modelhost=host, modeldatabase=database,modelpassword=password, modelmysqluser=mysqluser)
+
+
 # 功能二批量下发及查询所有模板信息，数据库操作
-@app.route('/RestconfApiDataFunctionTwo', methods=['POST', 'GET', 'PUT'])
-def RestconfApiDataFunctionTwo():
+@app.route('/RestconfApiDataFunctionTwo/<names>', methods=['POST', 'GET', 'PUT'])
+def RestconfApiDataFunctionTwo(names):
     if request.method == 'GET':
-        # 查询
-        return funtwo.redata()
+        if names == 'select':
+            # 查询
+            return functwo.redata()
+        elif names == 'Reset':
+            # 重置所有数据库中的模板
+            code = intomysql.intonew(3)
+            code2 = intomysql.intoNewModel_data(intomysql.new_val, 'yes')
+            if code == code2 == '200':
+                return '200'
+            else:
+                return '400'
     elif request.method == 'POST' or 'PUT':
-        # 批量下发操作
-        return funtwo.batch_distribution(request.data)
+        if names == 'CreateProject':
+            # 创建一个空项目
+            data = json.loads(request.data)['name']
+            return functwo.create_project(data)
+        elif names == 'SelectProject':
+            # 查询某个项目的所有信息
+            data = json.loads(request.data)['name']
+            return functwo.get_project_id(data)
+        elif names == 'CreateModel':
+            pname = json.loads(request.data)['name']
+            mid = json.loads(request.data)['id']
+            return functwo.batch_create_model(pname, mid)
+        elif names == 'GetProjectModel':
+            data = json.loads(request.data)['name']
+            return json.dumps(functwo.get_project_model(data))
+        elif names == 'DelProjectModel':
+            pname = json.loads(request.data)['name']
+            mid = json.loads(request.data)['id']
+            return json.dumps(functwo.batch_del_project_model(pname, mid))
+        elif names == 'UpdataProjectModel':
+            pname = json.loads(request.data)['name']
+            mid = json.loads(request.data)['mid']
+            model_data = json.loads(request.data)['modelData']
+            model_name = json.loads(request.data)['modelName']
+            return functwo.updata_project_model_data(pname, mid, model_data, model_name)
+        elif names == 'DeployProjectModel':
+            Pname = json.loads(request.data)['projectname']
+            mname = json.loads(request.data)['modelname']
+            tid = json.loads(request.data)['id']
+            Ttype = json.loads(request.data)['type']
+            return functwo.deploy_project_model(Pname, mname, tid, Ttype)
 
 
-# 模板增删改查及重置
+# 数据库中模板增删改查及重置
 @app.route('/RestconfApiDataFunctionTwoMysql/<name>', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionTwoMysql(name):
-    return funtwo.mysqls(name, request.data)
+    return functwo.mysqls(name, request.data)
 
 
 # 功能三 ,暂时采用旧的方法
@@ -90,7 +132,7 @@ def RestconfApiDataFunctionFour():
 def topos():
     roots = os.path.join(os.path.dirname(os.path.abspath(__file__)), "apis")
     if request.method == 'GET':
-        return send_from_directory(roots, "topo.html")
+        return send_from_directory(roots, "topo-net.html")
     elif request.method == 'POST' or 'PUT':
         datasss = json.loads(request.data)
         a = topo.TopoNewDataFiles(datasss)
