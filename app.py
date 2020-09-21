@@ -42,7 +42,7 @@ def RestconfApiData():
 
 
 c_url_api = 'https://sandboxdnac2.cisco.com'
-functwo = new_func_two_ck.new_func_two(url=c_url_api, user='admin', pwd='Cisco1234!', modelhost=host, modeldatabase=database,modelpassword=password, modelmysqluser=mysqluser)
+functwo = new_func_two_ck.new_func_two(url=c_url_api, user='admin', pwd='Cisco1234!', modelhost=host, modeldatabase=database, modelpassword=password, modelmysqluser=mysqluser)
 
 
 # 功能二批量下发及查询所有模板信息，数据库操作
@@ -60,6 +60,8 @@ def RestconfApiDataFunctionTwo(names):
                 return '200'
             else:
                 return '400'
+        elif names == 'OllProject':
+            return json.dumps(functwo.all_project())
     elif request.method == 'POST' or 'PUT':
         if names == 'CreateProject':
             # 创建一个空项目
@@ -92,6 +94,7 @@ def RestconfApiDataFunctionTwo(names):
             tid = json.loads(request.data)['id']
             Ttype = json.loads(request.data)['type']
             return functwo.deploy_project_model(Pname, mname, tid, Ttype)
+
 
 
 # 数据库中模板增删改查及重置

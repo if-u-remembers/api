@@ -239,12 +239,29 @@ class new_func_two:
             print('无法部署')
             return str(resp.status_code)
 
-    # def batch_deploy_project_model(self, project_name, model_name, tid, t_type):
-    #     relist = []
-    #     for item in tid:
-    #         redict = {'id': item, 'code': self.deploy_project_model(project_name, model_name, item, t_type)}
-    #         relist.append(redict)
-    #     return relist
+    def all_project(self):
+        # 获取所有模项目的名称
+        url = self.urls + '/dna/intent/api/v1/template-programmer/project'
+        token = self.__get_token()
+        headers = {
+            'X-Auth-Token': token,
+            'Content-Type': "application/json",
+            'cache-control': "no-cache"
+        }
+        if token is None:
+            return '400'
+        resp = requests.request("GET", url, headers=headers)
+        data = json.loads(resp.text.encode('utf8'))
+
+        if 200 <= resp.status_code <= 299 and data:
+            relist = []
+            mid = 0
+            for item in data:
+                relist.append({'name': item['name'], 'id': mid})
+                mid += 1
+            return relist
+        else:
+            return []
 
     ###################
     # 下列都是数据库操作
@@ -323,6 +340,8 @@ class new_func_two:
             relist.append(newdist)
         return json.dumps(relist)
 
+
+
     def mysqls(self, name, data):
         if name == 'del':
             return self.__dels(data)
@@ -333,3 +352,5 @@ class new_func_two:
         elif name == 'select':
             # 这里返回多组数据,且保留id及空的情况
             return self.__select(data)
+
+
