@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="修改api">
-      <change afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/new_func_two_ck.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/new_func_two_ck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/topo-net.html" beforeDir="false" afterPath="$PROJECT_DIR$/apis/topo-net.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,8 +80,11 @@
       <recent name="E:\vue\flask_vue_api\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Flask server.Flask (app.py)">
+  <component name="RunManager" selected="JavaScript Debug.topo-net.html">
     <configuration name="topo-net.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/flask/apis/topo-net.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="topo.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/flask/apis/topo.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="demo (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -100,28 +101,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="intomysql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="flask_vue_api" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/intomysql.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,17 +165,17 @@
       <item itemvalue="Flask server.flask_vue_api" />
       <item itemvalue="Flask server.Flask (app.py)" />
       <item itemvalue="JavaScript Debug.topo-net.html" />
-      <item itemvalue="Python.intomysql" />
+      <item itemvalue="JavaScript Debug.topo.html" />
       <item itemvalue="Python.demo (1)" />
       <item itemvalue="Python.new_func_two_ck" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.topo-net.html" />
+        <item itemvalue="JavaScript Debug.topo.html" />
         <item itemvalue="Flask server.Flask (app.py)" />
         <item itemvalue="Python.new_func_two_ck" />
-        <item itemvalue="JavaScript Debug.topo-net.html" />
         <item itemvalue="Python.demo (1)" />
-        <item itemvalue="Python.intomysql" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +284,8 @@
       <workItem from="1599990409145" duration="1548000" />
       <workItem from="1600060920593" duration="7280000" />
       <workItem from="1600073686383" duration="809000" />
-      <workItem from="1600693720155" duration="4572000" />
+      <workItem from="1600693720155" duration="6717000" />
+      <workItem from="1600747075102" duration="416000" />
     </task>
     <task id="LOCAL-00001" summary="修改api">
       <created>1595412735954</created>
@@ -397,48 +377,48 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="722" y="147" width="511" height="461" key="GridCell.Tab.-1.right/0.0.1366.768@0.0.1366.768" timestamp="1595904899972" />
-    <state width="1323" height="166" key="GridCell.Tab.0.bottom" timestamp="1600698474851">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="460" key="GridCell.Tab.0.bottom" timestamp="1600701634390">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="460" key="GridCell.Tab.0.bottom/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600696831179" />
+    <state width="1877" height="460" key="GridCell.Tab.0.bottom/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600701634390" />
     <state width="1323" height="166" key="GridCell.Tab.0.bottom/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1600698474851" />
     <state width="1323" height="298" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600074498615" />
     <state width="1877" height="444" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911483" />
     <state width="1323" height="114" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596279579912" />
     <state width="916" height="444" key="GridCell.Tab.0.bottom/0.40.1366.728/-1920.40.1920.1040@-1920.40.1920.1040" timestamp="1599564056251" />
     <state width="1323" height="384" key="GridCell.Tab.0.bottom/0.40.1366.728/-1920.40.1920.1040@0.40.1366.728" timestamp="1599551314893" />
-    <state width="1323" height="166" key="GridCell.Tab.0.center" timestamp="1600698474851">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="460" key="GridCell.Tab.0.center" timestamp="1600701634390">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="460" key="GridCell.Tab.0.center/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600696831179" />
+    <state width="1877" height="460" key="GridCell.Tab.0.center/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600701634390" />
     <state width="1323" height="166" key="GridCell.Tab.0.center/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1600698474851" />
     <state width="1323" height="298" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600074498615" />
     <state width="1877" height="444" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911482" />
     <state width="1323" height="114" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1596279579912" />
     <state width="916" height="444" key="GridCell.Tab.0.center/0.40.1366.728/-1920.40.1920.1040@-1920.40.1920.1040" timestamp="1599564056250" />
     <state width="1323" height="384" key="GridCell.Tab.0.center/0.40.1366.728/-1920.40.1920.1040@0.40.1366.728" timestamp="1599551314893" />
-    <state width="1323" height="166" key="GridCell.Tab.0.left" timestamp="1600698474851">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="460" key="GridCell.Tab.0.left" timestamp="1600701634389">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="460" key="GridCell.Tab.0.left/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600696831179" />
+    <state width="1877" height="460" key="GridCell.Tab.0.left/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600701634389" />
     <state width="1323" height="166" key="GridCell.Tab.0.left/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1600698474851" />
     <state width="1323" height="298" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600074498615" />
     <state width="1877" height="444" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911482" />
     <state width="1323" height="114" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1596279579912" />
     <state width="916" height="444" key="GridCell.Tab.0.left/0.40.1366.728/-1920.40.1920.1040@-1920.40.1920.1040" timestamp="1599564056250" />
     <state width="1323" height="384" key="GridCell.Tab.0.left/0.40.1366.728/-1920.40.1920.1040@0.40.1366.728" timestamp="1599551314893" />
-    <state width="1323" height="166" key="GridCell.Tab.0.right" timestamp="1600698474851">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1877" height="460" key="GridCell.Tab.0.right" timestamp="1600701634390">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="460" key="GridCell.Tab.0.right/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600696831179" />
+    <state width="1877" height="460" key="GridCell.Tab.0.right/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1600701634390" />
     <state width="1323" height="166" key="GridCell.Tab.0.right/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1600698474851" />
     <state width="1323" height="298" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600074498615" />
     <state width="1877" height="444" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911482" />
