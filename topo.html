@@ -4,10 +4,10 @@
     <title>topo</title>
     <meta charset="utf-8">
 </head>
-<body><div style="height: 1500px;" id="canvas"/><script src="http://demo.qunee.com/lib/qunee-min.js"></script>
+<body><div style="height: 700px;" id="canvas"/><script src="http://demo.qunee.com/lib/qunee-min.js"></script>
 <script>
         var graph = new Q.Graph('canvas');
-            var DNAC= graph.createNode("DNAC",100,-50);
+            var DNAC= graph.createNode("DNAC",50,-230);
             DNAC.image = Q.Graphs.server;
                 DNAC.size = {width:30,height:-1};
             DNAC.tooltip = "Name: DNA-Center Controller";
@@ -18,6 +18,36 @@
                 C3850_A.size = {width:50,height:-1};
             C3850_A.tooltip = "Type: Cisco Catalyst38xx stack-able ethernet switch<br>hostname:spine1.abc.inc<br>ipaddress:10.10.20.85<br>macAddress:70:01:b5:5d:1b:00";
             var edge = graph.createEdge("DNAC--->>C3850_A",DNAC,C3850_A);
+            
+            var C9300_24UX_1= graph.createNode("C9300_24UX_1",100,-50);
+            C9300_24UX_1.image = "http://demo.qunee.com/editor/data/cisco/workgroupSwitch.png";
+                C9300_24UX_1.size = {width:50,height:-1};
+            C9300_24UX_1.tooltip = "Type: Cisco Catalyst38xx stack-able ethernet switch<br>hostname:spine1.abc.inc<br>ipaddress:10.10.20.80<br>macAddress:70:01:b5:5d:1b:00";
+            var edge = graph.createEdge("C3850_A--->>C9300_24UX_1",C3850_A,C9300_24UX_1);
+            
+            var C9300_24UX_2= graph.createNode("C9300_24UX_2",300,100);
+            C9300_24UX_2.image = "http://demo.qunee.com/editor/data/cisco/workgroupSwitch.png";
+                C9300_24UX_2.size = {width:50,height:-1};
+            C9300_24UX_2.tooltip = "Type: Cisco Catalyst 9300 Switch<br>hostname:leaf2.abc.inc<br>ipaddress:10.10.20.82<br>macAddress:50:61:bf:ec:07:80";
+            var edge = graph.createEdge("C3850_A--->>C9300_24UX_2",C3850_A,C9300_24UX_2);
+            
+            var Wireless_LAN_Controller= graph.createNode("Wireless_LAN_Controller",-465,200);
+            Wireless_LAN_Controller.image = "http://demo.qunee.com/editor/data/cisco/ATMSwitch.png";
+                Wireless_LAN_Controller.size = {width:50,height:-1};
+            Wireless_LAN_Controller.tooltip = "Cisco 3504 Wireless LAN Controller<br>hostname:3504_WLC<br>ipaddress:10.10.20.51<br>macAddress:50:61:bf:57:2f:00";
+            var edge = graph.createEdge("C9300_24UX_1--->>Wireless_LAN_Controller",C9300_24UX_1,Wireless_LAN_Controller);
+            
+            var Host_1= graph.createNode("Host_1",200,200);
+            Host_1.image = Q.Graphs.node;
+                Host_1.size = {width:50,height:-1};
+            Host_1.tooltip = "Cisco 1140 Unified Access Point<br>hostname: T1-1<br>ipaddress:10.10.20.241<br>macAddress:00:2b:01:00:02:00";
+            var edge = graph.createEdge("C9300_24UX_1--->>Host_1",C9300_24UX_1,Host_1);
+            
+            var Host_2= graph.createNode("Host_2",550,200);
+            Host_2.image = Q.Graphs.node;
+                Host_2.size = {width:50,height:-1};
+            Host_2.tooltip = "Cisco 1140 Unified Access Point<br>hostname: T1-2<br>ipaddress:10.10.20.242<br>macAddress:00:2b:01:00:03:00";
+            var edge = graph.createEdge("C9300_24UX_1--->>Host_1",C9300_24UX_1,Host_1);
             
     edge.setStyle(Q.Styles.LABEL_OFFSET_Y, -10);
     edge.setStyle(Q.Styles.LABEL_POSITION, Q.Position.CENTER_TOP);

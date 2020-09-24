@@ -57,18 +57,18 @@ class inmysql:
         '''
         conn = self.__conn()
         cur = conn.cursor()
-        sql = "select * from %s where %s = %s" % (table, name, name_data)
-        try:
-            sqls = cur.execute(sql)
-            res = cur.fetchall()
-            if len(res) == 0:
-                print('数据库无数据')
-            cur.close()
-            conn.close()
-            # 返回一个数据库所有数据为id的元组
-            return res
-        except:
-            return '400'
+        sql = 'select * from %s where %s = "%s"; ' % (table, name, name_data)
+        # try:
+        sqls = cur.execute(sql)
+        res = cur.fetchall()
+        if len(res) == 0:
+            print('数据库无数据')
+        cur.close()
+        conn.close()
+        # 返回一个数据库所有数据为id的元组
+        return res
+        # except:
+        #     return '400'
 
     def dels(self, table, key, data):
         conn = self.__conn()

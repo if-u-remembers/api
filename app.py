@@ -96,7 +96,6 @@ def RestconfApiDataFunctionTwo(names):
             return functwo.deploy_project_model(Pname, mname, tid, Ttype)
 
 
-
 # 数据库中模板增删改查及重置
 @app.route('/RestconfApiDataFunctionTwoMysql/<name>', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionTwoMysql(name):

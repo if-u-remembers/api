@@ -116,7 +116,16 @@ class new_func_two:
             mid = 1
             # print(data)
             for item in data['templates']:
-                newdict = {'modelName': item['name'], 'id': item['id'], 'mid': mid}
+                # 从数据库查询到该模板名
+                sqlname = item['name']
+                sql = self.sql.select_for_id('cisco_model_data', 'name', sqlname)
+                if sql:
+                    model_data = sql[0][1]
+                    introduce = sql[0][4]
+                else:
+                    model_data = None
+                    introduce = None
+                newdict = {'modelName': item['name'], 'id': item['id'], 'mid': mid, "model": model_data, "introduce": introduce}
                 mid += 1
                 relist.append(newdict)
             return relist
