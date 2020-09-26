@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for, s
 from flask_cors import CORS
 from api import api_func_three
 from apis import func_one, func_two, func_four, new_func_two_ck
-import os,intomysql
+import os, intomysql
 import json
 from apis import topo
 
