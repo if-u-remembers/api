@@ -40,7 +40,7 @@ class inmysql:
         '''
         conn = self.__conn()
         cur = conn.cursor()
-        sql = cur.execute('select * from %s' % table)
+        sql = cur.execute('select * from %s order by id desc' % table)
         res = cur.fetchall()
         cur.close()
         conn.close()
@@ -156,12 +156,17 @@ logo int(8),
 introduce varchar(1000),
 remarks varchar(500),
 PRIMARY KEY(id))character set utf8;'''
+        sql_health = '''create table health(
+id int(8) not null auto_increment,
+time varchar(200),
+data varchar(1000),
+PRIMARY KEY(id))character set utf8;'''
         self.host = host
         self.user = user
         self.password = password
         self.database = database
-        self.data = [sql_model, sql_ddos_journal, sql_ddos_data, sql_cisco_model_data]
-        self.name = ['model_data', 'ddos_journal', 'ddos_data', 'cisco_model_data']
+        self.data = [sql_model, sql_ddos_journal, sql_ddos_data, sql_cisco_model_data, sql_health]
+        self.name = ['model_data', 'ddos_journal', 'ddos_data', 'cisco_model_data', 'health']
 
     def __conn(self):
         try:
@@ -254,6 +259,8 @@ PRIMARY KEY(id))character set utf8;'''
             tname += add
         tname, vs = tname[:-1], vs[:-1]
         sql = 'insert into ' + table + '(' + tname + ')values(' + vs + ');'
+        # print(sql)
+        # print(val)
         try:
             cur.executemany(sql, val)
             conn.commit()

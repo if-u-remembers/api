@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory
 from flask_cors import CORS
 from api import api_func_three
-from apis import func_one, func_two, func_four, new_func_two_ck
+from apis import func_one, func_two, func_four, new_func_two_ck, new_func_three
 import os, intomysql
 import json
 from apis import topo
@@ -96,25 +96,25 @@ def RestconfApiDataFunctionTwo(names):
             return functwo.deploy_project_model(Pname, mname, tid, Ttype)
 
 
-# 数据库中模板增删改查及重置
+# 数据库中模板增删改查及重置，功能二的补充接口
 @app.route('/RestconfApiDataFunctionTwoMysql/<name>', methods=['POST', 'GET', 'PUT'])
 def RestconfApiDataFunctionTwoMysql(name):
     return functwo.mysqls(name, request.data)
 
 
 # 功能三 ,暂时采用旧的方法
+# @app.route('/RestconfApiDataFunctionThree', methods=['GET'])
+# # def RestconfApiDataFunctionThree():
+# #     return api_func_three.intomysql()
+
+
+# 功能三健康度
+new_func_threes = new_func_three.func_three('admin', 'Cisco1234!', host, mysqluser, password, database)
+
+
 @app.route('/RestconfApiDataFunctionThree', methods=['GET'])
 def RestconfApiDataFunctionThree():
-    return api_func_three.intomysql()
-
-
-root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "template")
-# root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "apis")
-
-
-@app.route('/htmls', methods=['POST', 'GET', 'PUT'])
-def home():
-    return send_from_directory(root, "topo-net.html")
+    return json.dumps(new_func_threes.redata())
 
 
 # 功能四获取直接的json数据格式
