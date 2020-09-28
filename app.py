@@ -87,7 +87,8 @@ def RestconfApiDataFunctionTwo(names):
             mid = json.loads(request.data)['mid']
             model_data = json.loads(request.data)['modelData']
             model_name = json.loads(request.data)['modelName']
-            return functwo.updata_project_model_data(pname, mid, model_data, model_name)
+            introduce = json.loads(request.data)['introduce']
+            return functwo.updata_project_model_data(pname, mid, model_data, model_name, introduce)
         elif names == 'DeployProjectModel':
             Pname = json.loads(request.data)['projectname']
             mname = json.loads(request.data)['modelname']

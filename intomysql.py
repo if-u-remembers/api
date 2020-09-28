@@ -112,7 +112,7 @@ def intoNewModel_data(vals, ass):
 # 重置数据表
 # # 插入模板数据，插入数据列（旧的功能二模板数据库）
 # intoModel_data(val)
-# intonew(4)
+# intonew(5)
 # intoNewModel_data(new_val, 'yes')
 
 

@@ -58,17 +58,17 @@ class inmysql:
         conn = self.__conn()
         cur = conn.cursor()
         sql = 'select * from %s where %s = "%s"; ' % (table, name, name_data)
-        # try:
-        sqls = cur.execute(sql)
-        res = cur.fetchall()
-        if len(res) == 0:
-            print('数据库无数据')
-        cur.close()
-        conn.close()
-        # 返回一个数据库所有数据为id的元组
-        return res
-        # except:
-        #     return '400'
+        try:
+            sqls = cur.execute(sql)
+            res = cur.fetchall()
+            if len(res) == 0:
+                print('数据库无数据')
+            cur.close()
+            conn.close()
+            # 返回一个数据库所有数据为id的元组
+            return res
+        except:
+            return '400'
 
     def dels(self, table, key, data):
         conn = self.__conn()
@@ -156,17 +156,26 @@ logo int(8),
 introduce varchar(1000),
 remarks varchar(500),
 PRIMARY KEY(id))character set utf8;'''
+        # 健康度
         sql_health = '''create table health(
 id int(8) not null auto_increment,
 time varchar(200),
 data varchar(1000),
 PRIMARY KEY(id))character set utf8;'''
+        # 修复功能二的冗余数据库
+        sql_cisco_model_data2 = '''create table cisco_model_data2(
+id int(8) not null auto_increment,
+model varchar(4000),
+name varchar(100),
+introduce varchar(1000),
+PRIMARY KEY(id))character set utf8;
+'''
         self.host = host
         self.user = user
         self.password = password
         self.database = database
-        self.data = [sql_model, sql_ddos_journal, sql_ddos_data, sql_cisco_model_data, sql_health]
-        self.name = ['model_data', 'ddos_journal', 'ddos_data', 'cisco_model_data', 'health']
+        self.data = [sql_model, sql_ddos_journal, sql_ddos_data, sql_cisco_model_data, sql_health, sql_cisco_model_data2]
+        self.name = ['model_data', 'ddos_journal', 'ddos_data', 'cisco_model_data', 'health', 'cisco_model_data2']
 
     def __conn(self):
         try:

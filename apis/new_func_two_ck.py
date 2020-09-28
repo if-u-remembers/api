@@ -1,12 +1,15 @@
-from apis import reApi, mysql
-import urllib3, requests
-from requests.auth import HTTPBasicAuth
 import json
+import requests
+import urllib3
+from requests.auth import HTTPBasicAuth
+
+from apis import reApi, mysql
 
 
 class new_func_two:
     def __init__(self, url, user, pwd, modelhost, modelmysqluser, modelpassword, modeldatabase):
         self.sql = mysql.inmysql(modelhost, modelmysqluser, modelpassword, modeldatabase)
+        self.intosql = mysql.intomysql(modelhost, modelmysqluser, modelpassword, modeldatabase)
         self.user = user
         self.pwd = pwd
         self.urls = url
@@ -14,10 +17,10 @@ class new_func_two:
 
     def __get_token(self):
         # 获取token字符串用的
-        '''
+        """
         获取token串
         :return: 一个token串
-        '''
+        """
         url = self.urls + '/dna/system/api/v1/auth/token'
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         # try:
@@ -119,10 +122,15 @@ class new_func_two:
                 # 从数据库查询到该模板名
                 sqlname = item['name']
                 sql = self.sql.select_for_id('cisco_model_data', 'name', sqlname)
+                sql2 = self.sql.select_for_id('cisco_model_data2', 'name', sqlname)
                 if sql:
                     model_data = sql[0][1]
                     introduce = sql[0][4]
+                elif sql2:
+                    model_data = sql2[0][1]
+                    introduce = sql2[0][3]
                 else:
+                    print('data1和2都查不到数据')
                     model_data = None
                     introduce = None
                 newdict = {'modelName': item['name'], 'id': item['id'], 'mid': mid, "model": model_data, "introduce": introduce}
@@ -158,7 +166,16 @@ class new_func_two:
             relist.append(redict)
         return relist
 
-    def updata_project_model_data(self, name, mid, modeldata_data, modeldata_name):
+    def updata_project_model_data(self, name, mid, modeldata_data, modeldata_name, introduce):
+        # 先查询到数据库中数据是否和其符合
+        data1 = self.sql.select_for_id('cisco_model_data', 'name', modeldata_name)
+        data2 = self.sql.select_for_id('cisco_model_data2', 'name', modeldata_name)
+        data3 = self.sql.select('cisco_model_data2')
+        if data1 or data2:
+            print("查询到数据库存在数据")
+        else:
+            val = ((modeldata_data, modeldata_name, introduce),)
+            self.intosql.add_data(val, 'cisco_model_data2', ['model', 'name', 'introduce'])
         # 通过项目名查询到模板的id 并对该id所属的模板进行修改配置
         token = self.__get_token()
         pid = self.get_project_model(name)[mid - 1]['id']
@@ -349,8 +366,6 @@ class new_func_two:
             relist.append(newdist)
         return json.dumps(relist)
 
-
-
     def mysqls(self, name, data):
         if name == 'del':
             return self.__dels(data)
@@ -361,5 +376,3 @@ class new_func_two:
         elif name == 'select':
             # 这里返回多组数据,且保留id及空的情况
             return self.__select(data)
-
-
