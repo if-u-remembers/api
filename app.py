@@ -93,8 +93,8 @@ def RestconfApiDataFunctionTwo(names):
             Pname = json.loads(request.data)['projectname']
             mname = json.loads(request.data)['modelname']
             tid = json.loads(request.data)['id']
-            Ttype = json.loads(request.data)['type']
-            return functwo.deploy_project_model(Pname, mname, tid, Ttype)
+            # Ttype = json.loads(request.data)['type']
+            return functwo.deploy_project_model(Pname, mname, tid)
 
 
 # 数据库中模板增删改查及重置，功能二的补充接口

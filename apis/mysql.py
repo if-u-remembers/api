@@ -40,7 +40,7 @@ class inmysql:
         '''
         conn = self.__conn()
         cur = conn.cursor()
-        sql = cur.execute('select * from %s order by id desc' % table)
+        sql = cur.execute('select * from %s;' % table)
         res = cur.fetchall()
         cur.close()
         conn.close()
@@ -57,7 +57,7 @@ class inmysql:
         '''
         conn = self.__conn()
         cur = conn.cursor()
-        sql = 'select * from %s where %s = "%s"; ' % (table, name, name_data)
+        sql = 'select * from %s where %s = "%s" order by id desc; ' % (table, name, name_data)
         try:
             sqls = cur.execute(sql)
             res = cur.fetchall()
@@ -90,6 +90,22 @@ class inmysql:
             return '200'
         except:
             conn.rollback()
+            return '400'
+
+    def new_func2_updata(self, table, model, introduce, name):
+        conn = self.__conn()
+        cur = conn.cursor()
+        sql = "UPDATE {} set `model`='{}',`introduce`='{}' where `name` = {};".format(table, model, introduce, name)
+        print(sql)
+        currr = cur.execute(sql)
+        conn.commit()
+        cur.close()
+        conn.close()
+        if currr == 1:
+            return '200'
+        elif currr == 0:
+            return '100'
+        else:
             return '400'
 
     def fun2_updata(self, tablename, mid, name, model, remark, introduce, logo):

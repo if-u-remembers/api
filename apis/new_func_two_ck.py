@@ -127,6 +127,8 @@ class new_func_two:
                     model_data = sql[0][1]
                     introduce = sql[0][4]
                 elif sql2:
+                    # model_data = sql[0][1]
+                    # introduce = sql[0][3]
                     model_data = sql2[0][1]
                     introduce = sql2[0][3]
                 else:
@@ -171,8 +173,11 @@ class new_func_two:
         data1 = self.sql.select_for_id('cisco_model_data', 'name', modeldata_name)
         data2 = self.sql.select_for_id('cisco_model_data2', 'name', modeldata_name)
         data3 = self.sql.select('cisco_model_data2')
-        if data1 or data2:
+        if data1:
             print("查询到数据库存在数据")
+        elif len(data2) >= 1:
+            # 当data2存在数据
+            self.sql.new_func2_updata('cisco_model_data2', modeldata_data, introduce, modeldata_name)
         else:
             val = ((modeldata_data, modeldata_name, introduce),)
             self.intosql.add_data(val, 'cisco_model_data2', ['model', 'name', 'introduce'])
@@ -226,7 +231,7 @@ class new_func_two:
             print('无法获取ip')
             return str(resp.status_code)
 
-    def deploy_project_model(self, project_name, model_name, tid, t_type):
+    def deploy_project_model(self, project_name, model_name, tid):
         # 部署某个项目中的模板
         templateid = None
         token = self.__get_token()
@@ -252,7 +257,7 @@ class new_func_two:
             "targetInfo": [
                 {
                     "id": tid,
-                    "type": t_type
+                    "type": 'MANAGED_DEVICE_IP'
                 }
             ]
         }
