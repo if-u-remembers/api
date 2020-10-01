@@ -4,7 +4,6 @@
     <list default="true" id="b37af5a8-f51e-4373-9c68-2aecccb1c097" name="默认更改列表" comment="修改api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/new_func_two_ck.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/new_func_two_ck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -336,7 +335,10 @@
       <workItem from="1601279292737" duration="10135000" />
       <workItem from="1601301637174" duration="4155000" />
       <workItem from="1601305966283" duration="3016000" />
-      <workItem from="1601352182439" duration="877000" />
+      <workItem from="1601352182439" duration="2074000" />
+      <workItem from="1601428979059" duration="210000" />
+      <workItem from="1601431133332" duration="630000" />
+      <workItem from="1601536318223" duration="1077000" />
     </task>
     <task id="LOCAL-00001" summary="修改api">
       <created>1595412735954</created>
@@ -409,11 +411,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="129" y="54" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1595412712490" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1599736987634">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1601429079137">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1599736987634" />
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1594909595478" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1601429079137" />
     <state x="463" y="126" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1595850784528" />
     <state x="722" y="147" width="511" height="461" key="GridCell.Tab.-1.bottom" timestamp="1595904899972">
       <screen x="0" y="0" width="1366" height="768" />
@@ -431,50 +433,50 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="722" y="147" width="511" height="461" key="GridCell.Tab.-1.right/0.0.1366.768@0.0.1366.768" timestamp="1595904899972" />
-    <state width="1877" height="214" key="GridCell.Tab.0.bottom" timestamp="1601308790935">
+    <state width="1877" height="510" key="GridCell.Tab.0.bottom" timestamp="1601537404686">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.bottom/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="214" key="GridCell.Tab.0.bottom/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601308790935" />
+    <state width="1877" height="510" key="GridCell.Tab.0.bottom/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601537404686" />
     <state width="341" height="195" key="GridCell.Tab.0.bottom/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1601197377638" />
-    <state width="1323" height="120" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600765274597" />
+    <state width="1323" height="303" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1601374620395" />
     <state width="1877" height="444" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911483" />
     <state width="1323" height="114" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1596279579912" />
     <state width="916" height="444" key="GridCell.Tab.0.bottom/0.40.1366.728/-1920.40.1920.1040@-1920.40.1920.1040" timestamp="1599564056251" />
     <state width="1323" height="384" key="GridCell.Tab.0.bottom/0.40.1366.728/-1920.40.1920.1040@0.40.1366.728" timestamp="1599551314893" />
-    <state width="1877" height="214" key="GridCell.Tab.0.center" timestamp="1601308790935">
+    <state width="1877" height="510" key="GridCell.Tab.0.center" timestamp="1601537404686">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.center/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="214" key="GridCell.Tab.0.center/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601308790935" />
+    <state width="1877" height="510" key="GridCell.Tab.0.center/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601537404686" />
     <state width="341" height="195" key="GridCell.Tab.0.center/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1601197377638" />
-    <state width="1323" height="120" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600765274595" />
+    <state width="1323" height="303" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1601374620395" />
     <state width="1877" height="444" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911482" />
     <state width="1323" height="114" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1596279579912" />
     <state width="916" height="444" key="GridCell.Tab.0.center/0.40.1366.728/-1920.40.1920.1040@-1920.40.1920.1040" timestamp="1599564056250" />
     <state width="1323" height="384" key="GridCell.Tab.0.center/0.40.1366.728/-1920.40.1920.1040@0.40.1366.728" timestamp="1599551314893" />
-    <state width="1877" height="214" key="GridCell.Tab.0.left" timestamp="1601308790935">
+    <state width="1877" height="510" key="GridCell.Tab.0.left" timestamp="1601537404686">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.left/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="214" key="GridCell.Tab.0.left/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601308790935" />
+    <state width="1877" height="510" key="GridCell.Tab.0.left/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601537404686" />
     <state width="341" height="195" key="GridCell.Tab.0.left/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1601197377638" />
-    <state width="1323" height="120" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600765274594" />
+    <state width="1323" height="303" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1601374620395" />
     <state width="1877" height="444" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911482" />
     <state width="1323" height="114" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1596279579912" />
     <state width="916" height="444" key="GridCell.Tab.0.left/0.40.1366.728/-1920.40.1920.1040@-1920.40.1920.1040" timestamp="1599564056250" />
     <state width="1323" height="384" key="GridCell.Tab.0.left/0.40.1366.728/-1920.40.1920.1040@0.40.1366.728" timestamp="1599551314893" />
-    <state width="1877" height="214" key="GridCell.Tab.0.right" timestamp="1601308790935">
+    <state width="1877" height="510" key="GridCell.Tab.0.right" timestamp="1601537404686">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="976" height="184" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.728@-1024.0.1024.728" timestamp="1598366972554" />
     <state width="1323" height="255" key="GridCell.Tab.0.right/0.0.1366.728/-1024.0.1024.728@0.0.1366.728" timestamp="1598344697600" />
-    <state width="1877" height="214" key="GridCell.Tab.0.right/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601308790935" />
+    <state width="1877" height="510" key="GridCell.Tab.0.right/0.0.1366.728/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601537404686" />
     <state width="341" height="195" key="GridCell.Tab.0.right/0.0.1366.728/-1920.0.1920.1040@0.0.1366.728" timestamp="1601197377638" />
-    <state width="1323" height="120" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600765274596" />
+    <state width="1323" height="303" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1601374620395" />
     <state width="1877" height="444" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1599475911482" />
     <state width="1323" height="114" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1596279579912" />
     <state width="916" height="444" key="GridCell.Tab.0.right/0.40.1366.728/-1920.40.1920.1040@-1920.40.1920.1040" timestamp="1599564056251" />
@@ -626,11 +628,6 @@
           <line>170</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apis/new_func_two_ck.py</url>
-          <line>111</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -666,7 +663,7 @@
     <SUITE FILE_PATH="coverage/flask_vue_api$api_put.coverage" NAME="api_put Coverage Results" MODIFIED="1595664366527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$demo.coverage" NAME="demo Coverage Results" MODIFIED="1596187364141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask$api_func_four_new_img.coverage" NAME="api_func_four_new_img Coverage Results" MODIFIED="1599475901285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
-    <SUITE FILE_PATH="coverage/flask$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1601352963851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/flask$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1601537217184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flask_vue_api$MysqlApi.coverage" NAME="MysqlApi Coverage Results" MODIFIED="1595907192674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask$api_func_three.coverage" NAME="api_func_three Coverage Results" MODIFIED="1597495671440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/flask_vue_api$three_mysql_and_func_def__1_.coverage" NAME="three_mysql_and_func_def (1) Coverage Results" MODIFIED="1596098388136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />

@@ -130,6 +130,7 @@ class inmysql:
         cur = conn.cursor()
         val = ((data[0], data[1], data[2], data[3], data[4]),)
         sql = "insert into {}(`model`, `name`, `logo`, `introduce`, `remarks`)values(%s,%s,%s,%s,%s)".format(tablename)
+        print(sql)
         try:
             cur.executemany(sql, val)
             conn.commit()

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory
 from flask_cors import CORS
-from api import api_func_three
+from api import api_func_three, api_func_one_get, api_func_one_put
 from apis import func_one, func_two, func_four, new_func_two_ck, new_func_three
 import os, intomysql
 import json
@@ -27,6 +27,20 @@ password = '981002'
 database = 'office'
 # 实例化一个功能二类
 funtwo = func_two.ApifuncTwoMysql(user, pwd, host, mysqluser, password, database)
+
+
+# 功能一 查询所有接口信息 下发信息
+@app.route('/FunctionOne', methods=['POST', 'GET', 'PUT'])
+def RestconfApiDataone():
+    if request.method == 'GET':
+        # return api_func_one_get.page()
+        # return api_func_one_get.get_api_one()
+        # return api_func_one_get.jsonTodata()
+        return api_func_one_get.new_dict(api_func_one_get.jsonTodata())
+        # return api_func_one_get.new_dict(api_func_one_get.twoIPdata())
+    elif request.method == 'POST' or 'PUT':
+        datas = request.data
+        return api_func_one_put.put_api_ones(datas)
 
 
 # 功能一数据查询及修改设备信息，设备api操作
@@ -103,10 +117,10 @@ def RestconfApiDataFunctionTwoMysql(name):
     return functwo.mysqls(name, request.data)
 
 
-# 功能三 ,暂时采用旧的方法
-# @app.route('/RestconfApiDataFunctionThree', methods=['GET'])
-# # def RestconfApiDataFunctionThree():
-# #     return api_func_three.intomysql()
+# 旧功能三 ,旧的方法
+@app.route('/FunctionThree', methods=['GET'])
+def FunctionThree():
+    return api_func_three.intomysql()
 
 
 # 功能三健康度
