@@ -105,10 +105,10 @@ def RestconfApiDataFunctionTwo(names):
             return functwo.updata_project_model_data(pname, mid, model_data, model_name, introduce)
         elif names == 'DeployProjectModel':
             Pname = json.loads(request.data)['projectname']
-            mname = json.loads(request.data)['modelname']
-            tid = json.loads(request.data)['id']
-            # Ttype = json.loads(request.data)['type']
-            return functwo.deploy_project_model(Pname, mname, tid)
+            # mname = json.loads(request.data)['modelname']
+            # tid = json.loads(request.data)['id']
+            model = json.loads(request.data)['model']
+            return json.dumps(functwo.batch_deploy_project_model(model, Pname))
 
 
 # 数据库中模板增删改查及重置，功能二的补充接口

@@ -270,6 +270,13 @@ class new_func_two:
             print('无法部署')
             return str(resp.status_code)
 
+    def batch_deploy_project_model(self, model, pname):
+        relist = []
+        for item in model:
+            code = self.deploy_project_model(pname, item['modelname'], item['id'])
+            relist.append({'modelname': item['modelname'], 'code': code})
+        return relist
+
     def all_project(self):
         # 获取所有模项目的名称
         url = self.urls + '/dna/intent/api/v1/template-programmer/project'

@@ -1,4 +1,3 @@
-from vue_api import form_data
 from api import api_func_one_get
 from api import api_func_one_put
 from api import api_func_two_get
