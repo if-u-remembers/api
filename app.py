@@ -105,8 +105,13 @@ def RestconfApiDataFunctionTwo(names):
             return functwo.updata_project_model_data(pname, mid, model_data, model_name, introduce)
         elif names == 'DeployProjectModel':
             Pname = json.loads(request.data)['projectname']
-            # mname = json.loads(request.data)['modelname']
-            # tid = json.loads(request.data)['id']
+            mname = json.loads(request.data)['modelname']
+            tid = json.loads(request.data)['id']
+            # model = json.loads(request.data)['model']
+            # return json.dumps(functwo.batch_deploy_project_model(model, Pname))
+            return functwo.deploy_project_model(Pname, mname, tid)
+        elif names == 'BatchDeployProjectModel':
+            Pname = json.loads(request.data)['projectname']
             model = json.loads(request.data)['model']
             return json.dumps(functwo.batch_deploy_project_model(model, Pname))
 
