@@ -41,7 +41,9 @@ class inmysql:
         conn = self.__conn()
         cur = conn.cursor()
         sql = cur.execute('select * from %s;' % table)
+        print(123)
         res = cur.fetchall()
+        print(456)
         cur.close()
         conn.close()
         # 返回一个数据库所有数据的元组
@@ -140,6 +142,10 @@ class inmysql:
         except:
             conn.rollback()
             return '400'
+
+
+a = inmysql(host='47.112.160.89', user='test', database='test', password='123456')
+print(a.select('simple_banner'))
 
 
 class intomysql:
@@ -302,3 +308,5 @@ PRIMARY KEY(id))character set utf8;
             cur.close()
             conn.close()
             return '400'
+
+

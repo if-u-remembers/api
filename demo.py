@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-#-*- coding:utf-8 -*-
-############################
-#File Name: ipscaner.py
-#Author: frank
-#Mail: frank0903@aliyun.com
-#Created Time:2017-06-05 16:06:37
-############################
-
-
 import platform
 import sys
 import os
